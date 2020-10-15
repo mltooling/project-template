@@ -5,6 +5,6 @@ Upstream-Contact: Lukas Masuch <lukas.masuch@gmail.com>
                   Jan Kalkan <kalkan.jan@gmail.com>
 Source: https://github.com/TODO
 
-Files: *
+Files: **
 Copyright: Lukas Masuch, Benjamin Raehtlein, and Jan Kalkan
 License: Apache-2.0
