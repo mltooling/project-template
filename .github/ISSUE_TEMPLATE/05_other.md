@@ -1,6 +1,6 @@
 ---
 name: "\U0001F4AC Anything else?"
-about: ''
+about: 'Do you have any other question?'
 title: ''
 labels: ''
 assignees: ''
