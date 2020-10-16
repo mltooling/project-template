@@ -12,7 +12,9 @@
     <a href="https://hub.docker.com/r/mltooling/TODO" title="Docker Pulls"><img src="https://img.shields.io/docker/pulls/mltooling/TODO.svg"></a>
     <a href="https://github.com/mltooling/project-template/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/mltooling/project-template"></a>
     <a href="https://github.com/mltooling/project-template/blob/main/LICENSE" title="Project License"><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
-    <a href="https://api.reuse.software/info/github.com/mltooling/project-template" title="REUSE status"><img src="https://api.reuse.software/badge/github.com/mltooling/project-template"></a>
+    <a href="https://api.reuse.software/info/github.com/mltooling/project-template" title="REUSE status"><img src="https://api.reuse.software/badge/github.com/sap/machine-learning-lab"></a>
+    <a href="https://github.com/SAP/machine-learning-lab/actions?query=workflow%3A%22Build+and+Test+ML+Lab%22" title="REUSE status"><img src="https://img.shields.io/github/workflow/status/sap/machine-learning-lab/Build%20and%20Test%20ML%20Lab"></a>
+    
 </p>
 
 <p align="center">
