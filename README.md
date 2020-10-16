@@ -24,6 +24,7 @@
   <a href="#support--feedback">Support</a> •
   <a href="https://github.com/mltooling/project-template/issues/new?labels=bug&template=01_bug-report.md">Report a Bug</a> •
   <a href="#faq">FAQ</a> •
+  <a href="#known-issues">Known Issues</a> •
   <a href="#contribution">Contribution</a> •
   <a href="./CHANGELOG.md">Changelog</a>
 </p>
