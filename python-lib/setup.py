@@ -14,7 +14,7 @@ import sys
 from glob import glob
 from os.path import basename, splitext
 
-from setuptools import find_packages, setup
+from setuptools import find_packages, setup  # type: ignore
 
 # Package meta-data.
 NAME = "python-lib"
@@ -57,7 +57,7 @@ with io.open(os.path.join(here, "requirements.txt"), encoding="utf-8") as f:
 # Load the package's __version__.py module as a dictionary.
 about = {}  # type: dict
 if not VERSION:
-    with open(os.path.join(here, os.path.join("src", MAIN_PACKAGE) , "about.py")) as f:
+    with open(os.path.join(here, os.path.join("src", MAIN_PACKAGE), "about.py")) as f:  # type: ignore
         exec(f.read(), about)
 else:
     about["__version__"] = VERSION
@@ -81,7 +81,7 @@ setup(
     zip_safe=False,
     install_requires=requirements,
     classifiers=[
-        # TODO: update this list to match your application: https://pypi.python.org/pypi?%3Aaction=list_classifiers
+        # TODO: Update via https://pypi.python.org/pypi?%3Aaction=list_classifiers
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
@@ -89,10 +89,10 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.5",
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3 :: Only',
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3 :: Only",
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
