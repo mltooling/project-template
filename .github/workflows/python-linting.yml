@@ -7,20 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v2
+    - name: flake8-linting
+      uses: TrueBrain/actions-flake8@master
+      with:
+        path: python-lib/
     - uses: weibullguy/python-lint-plus@master
       with:
         python-root-list: "python-lib"
         use-black: true
         use-isort: true
         use-mypy: true
-        use-flake8: true
+        use-flake8: false
         use-docformatter: false
         use-pycodestyle: false
         use-pydocstyle: false
         use-pylint: false
-    - name: flake8-linting
-      uses: TrueBrain/actions-flake8@master
-      with:
-        path: python-lib/src/
-
         
