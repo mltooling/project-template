@@ -14,7 +14,7 @@ import sys
 from glob import glob
 from os.path import basename, splitext
 
-from setuptools import Command, find_packages, setup
+from setuptools import find_packages, setup  # type: ignore
 
 # Package meta-data.
 NAME = "python-lib"
@@ -57,7 +57,7 @@ with io.open(os.path.join(here, "requirements.txt"), encoding="utf-8") as f:
 # Load the package's __version__.py module as a dictionary.
 about = {}  # type: dict
 if not VERSION:
-    with open(os.path.join(here, os.path.join("src", MAIN_PACKAGE), "about.py")) as f:
+    with open(os.path.join(here, os.path.join("src", MAIN_PACKAGE), "about.py")) as f:  # type: ignore
         exec(f.read(), about)
 else:
     about["__version__"] = VERSION
