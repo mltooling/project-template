@@ -2,21 +2,15 @@ name: pr-title-linting
 
 on:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
+    branches: [main]
+    types: [opened, reopened, edited, synchronize]
 
 jobs:
-  lint:
+  pr-title-linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: aslafy-z/conventional-pr-title-action@master
-        with:
-          success-state: Title follows our guidelines.
-          failure-state: Title does not follow our guidelines.
-          context-name: conventional-pr-title
-          preset: conventional-changelog-angular@latest
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: pr-title-linting
+        id: pr-title-linting
+        uses: agenthunt/conventional-commit-checker-action@v1.0.0
