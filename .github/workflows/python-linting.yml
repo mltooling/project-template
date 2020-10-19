@@ -1,0 +1,13 @@
+name: python-linting
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+    - name: flake8-linting
+      uses: TrueBrain/actions-flake8@master
+      with:
+        path: python-lib/src/
