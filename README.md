@@ -136,3 +136,5 @@ To trigger the release, the version and test argument must be provided. The vers
 ---
 
 Licensed **MIT**. Created and maintained with ❤️ by developers from Berlin.
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fml-tooling%2Fml-hub.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fml-tooling%2Fml-hub?ref=badge_large)
