@@ -31,12 +31,26 @@ __pycache__
 .ipynb_checkpoints
 .Python
 dist/
+.python-version
+.installed.cfg
+*.egg
 
 # Byte-compiled / optimized / DLL files
 *.pyc
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
 
 # NPM / Node / JavaScript
 .npm
