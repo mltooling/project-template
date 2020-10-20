@@ -1,4 +1,4 @@
-
+# Based on: https://github.com/github/super-linter/blob/master/TEMPLATES/.markdown-lint.yml
 ---
 ###########################
 ###########################
@@ -19,5 +19,23 @@
 ###############
 # Rules by id #
 ###############
+MD004: false                  # Unordered list style
+MD007:
+  indent: 2                   # Unordered list indentation
+MD013:
+  line_length: 400            # Line length 80 is far to short
+MD026:
+  punctuation: ".,;:!。，；:"  # List of not allowed
+MD029: false                  # Ordered list item prefix
 MD033: false                  # Allow inline HTML
+MD036: false                  # Emphasis used instead of a heading
+
+#################
+# Rules by tags #
+#################
+blank_lines: false  # Error on blank lines
+
+#################
+# Custom Configuration #
+#################
 MD041: false # First line in file should be a top level heading
