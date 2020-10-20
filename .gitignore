@@ -14,7 +14,7 @@ target/
 .classpath
 # Shared VS Code Settings
 .vscode/*
-!.vscode/settings.json.default
+!.vscode/settings.default.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
