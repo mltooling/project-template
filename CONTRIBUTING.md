@@ -15,8 +15,8 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
     - [Git Workflow & Versioning](#git-workflow--versioning)
 3. [Code conventions](#code-conventions)
     - [Python conventions](#python-conventions)
-    - [React conventions](#java-conventions)
     - [Java conventions](#java-conventions)
+    - [React conventions](#java-conventions)
 4. [Code of conduct](#code-of-conduct)
 
 ## Issues and bug reports
