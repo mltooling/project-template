@@ -21,7 +21,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 ## Issues and bug reports
 
 - We use GitHub issues to track bugs and enhancement requests.
-- First, do a quick search on the Github issue tracker to see if the issue has already been reported. If so, it's often better to just leave a comment on an existing issue rather than creating a new one. Old - and sometimes closed - issues also often include helpful tips and solutions to common problems.
+- First, do a quick search on the Github issue tracker or the known issues section in the readme to see if the issue has already been reported. If so, it's often better to just leave a comment on an existing issue rather than creating a new one. Old - and sometimes closed - issues also often include helpful tips and solutions to common problems.
 - When creating an issue, try using one of our [issue templates](https://github.com/mltooling/project-template/issues/new/choose) which already contain some guidelines on which content is expected to process the issue most efficiently. If no template applies, you can of course also create an issue from scratch.
 - Please provide as much context as possible when you open an issue. The information you provide must be comprehensive enough to reproduce that issue for the assignee. Therefore, contributors should use but aren't restricted to the issue template provided by the project maintainers.
 - Please apply one or more applicable [labels](https://github.com/mltooling/project-template/labels) to your issue so that all community members are able to cluster the issues better.
@@ -89,20 +89,19 @@ To trigger the release, the version and test argument must be provided. The vers
 
 Commit messages should be as standardized as possible within the repository. Naming via [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) is preferred, and necessary for all pull requests titles that require a version change. A few best practices:
 
-1. Always use simple present (imperative mood) to describe what the commit does.
+1. Always use simple present (imperative mood) to describe what the commit does. Explain what & why, not how!
 2. Start with a capital letter.
 3. Don’t end the subject line with a period.
 4. Descriptive but short subject line (< 50 chars).
 5. Link to issues by mentioning them in commit messages.
-6. Explain what & why, not how!
-7. Examples: `Docs: add image to documentation section 3`, `Fix: memory leak. Closes #3`, `Refactor: split method X into two methods`. Refer to [this blog](https://chris.beams.io/posts/git-commit/) for more information about good commit messages.
+6. Examples: `Docs: add image to documentation section 3`, `Fix: memory leak. Closes #3`, `Refactor: split method X into two methods`. Refer to [this blog](https://chris.beams.io/posts/git-commit/) for more information about good commit messages.
 
 ### Opening a pull request
 
 1. **Set title**. The title should follow the naming via [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and the commit message guidelines (example: `Fix: memory leak in picture loader`). If the pull request closes a specific issue, the title can be used to mention the issue (example: `Fix: memory leak in picture loader. Closes #3`). Prefix the title with `[WIP]` *(Work In Progress)* to indicate that you are not done but need clarification or an explicit review before you can continue your work item.
 2. **Add appropriate labels** (e.g. bug, enhancement, documentation).
 3. **Set description:** Describe what the pull request is about and add some bullet points describing what’s changed and why (make use of the provided template). Link the pull request to all relevant issues in the pull request description (e.g. `Closes #10`). Find more information on linking pull requests to issues [here](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue).
-4. Open the pull request and make sure existing tests and checks pass.
+4. Open the pull request and make sure existing tests and checks pass. The PR will only be merged into main if it is consistent with style and linting guidelines.
   
 ### Review & merging of a pull request
 
@@ -115,15 +114,17 @@ Commit messages should be as standardized as possible within the repository. Nam
 
 ### Python conventions
 
-Our python components use [black](https://github.com/ambv/black) for code formatting, [isort](https://github.com/PyCQA/isort) for import sorting, [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. All code should be written compatible with Python 3.6+, with type hints wherever possible.
+Our python components use [black](https://github.com/ambv/black) for code formatting, [isort](https://github.com/PyCQA/isort) for import sorting, [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. All code should be written compatible with Python 3.6+, with [type hints](https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html) wherever possible.
 
 #### Code style & naming
 
-Code style and naming should loosely follow [pep8](https://www.python.org/dev/peps/pep-0008/). For documentation strings, this project follows the [Google style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html).
+- **Code style** should loosely follow [pep8](https://www.python.org/dev/peps/pep-0008/).
+- **Documentation style** should follow the [Google style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html).
+- **Naming** should follow the recommendations [here](https://github.com/naming-convention/naming-convention-guides/tree/master/python#python-naming-convention).
 
 #### Code formatting
 
-We use [black](https://github.com/ambv/black) for code formatting and [isort](https://github.com/PyCQA/isort) for import sorting. The following comands run `black` and `isort` on all python files of a project (when executed in the project root):
+We use [black](https://github.com/ambv/black) for code formatting and [isort](https://github.com/PyCQA/isort) for import sorting. The following comands run `black` and `isort` on all Python files of a project (when executed in the project root):
 
 ```bash
 python -m isort --profile black .
@@ -190,7 +191,7 @@ You can also configure `flake8` and `mypy` inside your code editor. For example,
 
 #### Adding & running tests
 
-We use the [pytest](http://doc.pytest.org/) framework for testing. For more info on this, see the [pytest documentation](http://docs.pytest.org/en/latest/contents.html). Tests for modules and classes live in their own directories of the same name inside the `tests` folder. To be interpreted and run, all test files and test functions need to be prefixed with `test_`. To run the test suite, execute:
+We use the [pytest](http://doc.pytest.org/) framework for testing. For more info on this, see the [pytest documentation](http://docs.pytest.org/en/latest/contents.html). Tests for modules and classes live in their own directories of the same name inside the `tests` folder. To be discovered, all test files and test functions need to be prefixed with `test_`. To run the test suite, execute:
 
 ```bash
 # run test suite:
@@ -205,7 +206,40 @@ _TBD_
 
 ### Java conventions
 
-_TBD_
+#### Code style & naming
+
+- **Code & documentation style** should loosely follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html).
+- **Naming** should follow the recommendations [here](https://github.com/naming-convention/naming-convention-guides/tree/master/java).
+- To enforce the Google Java Style, we recommend to run the [checkstyle](https://github.com/checkstyle/checkstyle) tool with the `google_checks.xml` configuration. For VS Code, you can use the [checkstyle extension](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle).
+
+#### Code formatting
+
+We use [google-java-format](https://github.com/google/google-java-format) for code formatting and import sorting. The following comand run `google-java-format` on a Java file:
+
+```bash
+google-java-format --replace path/to/file.java
+```
+
+If you want to only check if the formatting and sorting is applied correctly to all files, execute:
+
+```bash
+google-java-format --dry-run --set-exit-if-changed path/to/file.java
+```
+
+You can also configure `google-java-format` inside your code editor. For IntelliJ you can find information [here](https://github.com/google/google-java-format#intellij-android-studio-and-other-jetbrains-ides) and for VS Code [here](https://marketplace.visualstudio.com/items?itemName=mngrm3a.vscode-google-java-formatter).
+
+#### Code linting
+
+We recommend to use [Sonarlint](https://www.sonarlint.org/) for linting in Java. You can configure Sonarlint for VS Code as explained [here](https://www.sonarlint.org/visualstudio) or for IntelliJ as described [here](https://www.sonarlint.org/intellij).
+
+#### Adding & running tests
+
+We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more info on this, see the [junit documentation](https://junit.org/junit5/docs/current/user-guide/). Tests for classes live in their own directories of the same name inside the `src/test` folder. To be discovered, all test classes need to be suffixed with `Test`. To run the test suite via maven, execute in the project root:
+
+```bash
+# run test suite:
+mvn verify
+```
 
 ## Code of Conduct
 
