@@ -1,0 +1,43 @@
+{
+  "recommendations": [
+    // General Development
+    "VisualStudioExptTeam.vscodeintellicode",
+    "formulahendry.code-runner",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "DotJoshJohnson.xml",
+    "redhat.vscode-yaml",
+    "christian-kohler.path-intellisense",
+    "humao.rest-client",
+    "esbenp.prettier-vscode",
+    "42Crunch.vscode-openapi",
+    // Collaboration
+    "eamodio.gitlens",
+    "MS-vsliveshare.vsliveshare-pack",
+    "aaron-bond.better-comments",
+    "lostintangent.vsls-pomodoro",
+    "vsls-contrib.spaces",
+    // Container Development
+    "ms-azuretools.vscode-docker",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    // Markdown
+    "DavidAnson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one",
+    "shd101wyy.markdown-preview-enhanced",
+    // Web Development
+    "dbaeumer.vscode-eslint",
+    "christian-kohler.npm-intellisense",
+    "eg2.vscode-npm-script",
+    "Zignd.html-css-class-completion",
+    "ritwickdey.LiveServer",
+    "msjsdiag.debugger-for-chrome",
+    // Python Development
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "njpwerner.autodocstring",
+    // Java Development
+    "vscjava.vscode-java-pack",
+    "redhat.java",
+    "SonarSource.sonarlint-vscode",
+    "shengchen.vscode-checkstyle"
+  ]
+}
