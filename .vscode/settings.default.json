@@ -1,5 +1,4 @@
 {
-  // Copy these settings into the settings.json in the workspace
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",

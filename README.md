@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD033 MD041 -->
 <h1 align="center">
     Project Template
 </h1>
@@ -13,7 +14,6 @@
     <a href="https://github.com/mltooling/project-template/blob/main/LICENSE" title="Project License"><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
     <a href="https://api.reuse.software/info/github.com/mltooling/project-template" title="REUSE status"><img src="https://api.reuse.software/badge/github.com/sap/machine-learning-lab"></a>
     <a href="https://github.com/SAP/machine-learning-lab/actions?query=workflow%3A%22Build+and+Test+ML+Lab%22" title="REUSE status"><img src="https://img.shields.io/github/workflow/status/sap/machine-learning-lab/Build%20and%20Test%20ML%20Lab"></a>
-    
 </p>
 
 <p align="center">

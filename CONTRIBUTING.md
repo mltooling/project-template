@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD024 -->
 # Contribute to Project Template
 
 Thanks for your interest in contributing to our project. This page will give you a quick overview of how things are organized and most importantly, how to get involved.
