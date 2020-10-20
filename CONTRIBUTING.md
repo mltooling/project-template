@@ -12,6 +12,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
     - [Commit messages guidelines](#commit-messages-guidelines)
     - [Opening a pull request](#opening-a-pull-request)
     - [Review & merging of a pull request](#review--merging-of-a-pull-request)
+    - [Git Workflow & Versioning](#git-workflow--versioning)
 3. [Code conventions](#code-conventions)
     - [Python conventions](#python-conventions)
     - [React conventions](#java-conventions)
@@ -110,7 +111,7 @@ Commit messages should be as standardized as possible within the repository. Nam
 3. Once the pull request is approved by at least 1 reviewer, the pull request can be merged. `Squash & merge` is the preferred merging strategy.
 4. In case a new (feature) branch was created in the main repository, please delete this branch after a successful merge.
 
-## Git Workflow & Versioning
+### Git Workflow & Versioning
 
 - We use [GitLab Flow](https://docs.gitlab.com/ee/university/training/gitlab_flow.html#release-branch) as our branching workflow.
 - Feature branching: Use (short-lived) feature branches. Naming schema:  `feature/<DESCRIPTION>`, if related to one specific issue use suffix: `feature/<DESCRIPTION>/<ISSUE-NUMBER>`.
