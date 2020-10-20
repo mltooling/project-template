@@ -101,7 +101,7 @@ Commit messages should be as standardized as possible within the repository. Nam
 1. **Set title**. The title should follow the naming via [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and the commit message guidelines (example: `Fix: memory leak in picture loader`). If the pull request closes a specific issue, the title can be used to mention the issue (example: `Fix: memory leak in picture loader. Closes #3`). Prefix the title with `[WIP]` *(Work In Progress)* to indicate that you are not done but need clarification or an explicit review before you can continue your work item.
 2. **Add appropriate labels** (e.g. bug, enhancement, documentation).
 3. **Set description:** Describe what the pull request is about and add some bullet points describing what’s changed and why (make use of the provided template). Link the pull request to all relevant issues in the pull request description (e.g. `Closes #10`). Find more information on linking pull requests to issues [here](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue).
-4. Open the pull request and make sure existing tests and checks pass. The PR will only be merged into main if it is consistent with style and linting guidelines.
+4. Open the pull request and make sure existing tests and checks pass. The PR will only be merged into `main` if it is consistent with style and linting guidelines.
   
 ### Review & merging of a pull request
 
@@ -109,6 +109,12 @@ Commit messages should be as standardized as possible within the repository. Nam
 2. Every comment on PR should be accepted as a change request and should be discussed. When something is optional, it should be noted in the comment. If a review requires you to make additional changes, please test the changes again. Create a comment on the PR to notify the reviewers that your amendments are ready for another round of review. 
 3. Once the pull request is approved by at least 1 reviewer, the pull request can be merged. `Squash & merge` is the preferred merging strategy.
 4. In case a new (feature) branch was created in the main repository, please delete this branch after a successful merge.
+
+## Git Workflow & Versioning
+
+- We use [GitLab Flow](https://docs.gitlab.com/ee/university/training/gitlab_flow.html#release-branch) as our branching workflow.
+- Feature branching: Use (short-lived) feature branches. Naming schema:  `feature/<DESCRIPTION>`, if related to one specific issue use suffix: `feature/<DESCRIPTION>/<ISSUE-NUMBER>`.
+- For versioning, we have adapted the [Semantic Versioning](https://semver.org/) standard. All version tags on Git must be prefixed with `v` (e.g.`v<MAJOR>.<MINOR>.<PATCH>`). The version can be suffixed with a tag that indicates a pre-release or unfinished version. All our local development builds will use the following dev suffix: `-dev.<BRANCH>`.
 
 ## Code conventions
 
