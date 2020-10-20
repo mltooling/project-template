@@ -216,6 +216,15 @@ _TBD_
 
 ### Java conventions
 
+- Code Style: [Google Java Style](https://google.github.io/styleguide/javaguide.html) ([Checkstyle](https://github.com/checkstyle/checkstyle) to enforce styling)
+- Documentation Style: [Google Java Style](https://google.github.io/styleguide/javaguide.html#s4.8.6-comments) (Javadoc)
+- Naming Conventions: [naming-conventions-guide](https://github.com/naming-convention/naming-convention-guides/tree/master/java)
+- Build Tool: [Maven](https://maven.apache.org/)
+- Code Formatter: [google-java-format](https://github.com/google/google-java-format)
+- Linting: [sonarlint](https://www.sonarlint.org/)
+- Testing: [JUnit 5](https://junit.org/junit5/)
+- Minimum compatibility: Java 11
+
 #### Code style & naming
 
 - **Code & documentation style** should loosely follow [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html).
