@@ -87,51 +87,15 @@ _TODO: Add sourcerer [hall of fame](https://github.com/sourcerer-io/hall-of-fame
 
 ## Development
 
-To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, test, and release) within a containerized environment. While it is not recommended, you can also run the build process on your local environment by using the `--local` argument.
+> _**Requirements**: Python and Docker are required to be installed on your machine to execute the build process._
 
-### Requirements
-
-- Python, Docker
-
-### Build
-
-Execute this command in the project root folder to compile, assemble, and package all project components:
+To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, test, and release) within a containerized environment. To build and test your changes, execute the following command in the project root folder:
 
 ```bash
-python build.py --build
+python build.py --make --test --containerized
 ```
 
-You can also run the build for a specific (sub-)component by running the `build.py` script from the component folder. 
-
-For additional script options, run:
-
-```bash
-python build.py --help
-```
-
-### Test
-
-Once all the project artifacts are build, you can execute this command in the project root folder to run the integration and unit tests for all components:
-
-```bash
-python build.py --test
-```
-
-To only test a specific component, execute the `build.py` script in the root of the component folder. You can also combine the build and test steps into one command as shown below:
-
-```bash
-python build.py --build --test
-```
-
-### Release
-
-To release a new version and publish all relevant artifacts to respective registries (e.g. Docker image to DockerHub), execute:
-
-```bash
-python build.py --build --test --release --version=<MAJOR.MINOR.PATCH>
-```
-
-To trigger the release, the version and test argument must be provided. The version format must follow the [Semantic Versioning](https://semver.org/) standard: `MAJOR.MINOR.PATCH`.
+Refer to our [contribution guides](./CONTRIBUTING.md#development-instructions) for more detailed information on our build scripts and development process.
 
 ---
 
