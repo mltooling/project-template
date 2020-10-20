@@ -25,6 +25,6 @@ jobs:
           FILTER_REGEX_EXCLUDE:  (.*\.vscode/.*)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: lint-python
-        uses: wemake-services/wemake-python-styleguide
+        uses: wemake-services/wemake-python-styleguide@0.14.1
         with:
           path: './python-lib'
