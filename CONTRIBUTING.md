@@ -1,6 +1,6 @@
 # Contribute to Project Template
 
-Thanks for your interest in contributing to our project.  This page will give you a quick overview of how things are organised and most importantly, how to get involved.
+Thanks for your interest in contributing to our project. This page will give you a quick overview of how things are organised and most importantly, how to get involved.
 
 Everyone is welcome to contribute, and we value everybody's contribution. Code is thus not the only way to help the community. Answering questions, helping others, reaching out and improving the documentations are immensely valuable to the projects as well.
 
@@ -21,7 +21,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 
 ## Issues and bug reports
 
-- We use GitHub issues to track bugs and enhancement requests.
+- We use GitHub issues to track bugs and enhancement requests. Submit issues for any [feature request and enhancement](https://github.com/mltooling/project-template/issues/new?assignees=&labels=feature&template=02_feature-request.md&title=), [bugs](https://github.com/mltooling/project-template/issues/new?assignees=&labels=bug&template=01_bug-report.md&title=), or [documentation](https://github.com/mltooling/project-template/issues/new?assignees=&labels=documentation&template=03_documentation.md&title=) problems.
 - First, do a quick search on the Github issue tracker or the known issues section in the readme to see if the issue has already been reported. If so, it's often better to just leave a comment on an existing issue rather than creating a new one. Old - and sometimes closed - issues also often include helpful tips and solutions to common problems.
 - When creating an issue, try using one of our [issue templates](https://github.com/mltooling/project-template/issues/new/choose) which already contain some guidelines on which content is expected to process the issue most efficiently. If no template applies, you can of course also create an issue from scratch.
 - Please provide as much context as possible when you open an issue. The information you provide must be comprehensive enough to reproduce that issue for the assignee. Therefore, contributors should use but aren't restricted to the issue template provided by the project maintainers.
@@ -30,7 +30,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 
 ## Contributing to the code base
 
-You are welcome to contribute code in order to fix a bug,  to implement a new feature, to propose new documentation, or just to fix a typo.
+You are welcome to contribute code in order to fix a bug, to implement a new feature, to propose new documentation, or just to fix a typo. Check out [good first issue](https://github.com/mltooling/project-template/labels/good%20first%20issue) and [help wanted](https://github.com/mltooling/project-template/labels/help%20wanted) issues if you want to find open issues to implement.
 
 - Before writing code, we strongly advise you to search through the exising PRs or issues to make sure that nobody is already working on the same thing. If you are unsure, it is always a good idea to open an issue to get some feedback.
 - Should you wish to work on an existing issue that has not yet been claimed, please claim it first by commenting on the GitHub issue that you want to work on and begin work (the maintainers will assign it to your GitHub user as soon as they can). This is to prevent duplicated efforts from other contributors on the same issue.
@@ -217,10 +217,6 @@ python -m pytest .
 
 When adding tests, make sure to use descriptive names, keep the code short and concise and only test for one behaviour at a time. Try to `parametrize` test cases wherever possible and avoid unnecessary imports. Extensive tests that take a long time should be marked with `@pytest.mark.slow`.
 
-### React conventions
-
-_TBD_
-
 ### Java conventions
 
 - Code Style: [Google Java Style](https://google.github.io/styleguide/javaguide.html) ([Checkstyle](https://github.com/checkstyle/checkstyle) to enforce styling)
@@ -266,6 +262,10 @@ We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more 
 # run test suite:
 mvn verify
 ```
+
+### React conventions
+
+_TBD_
 
 ## Code of Conduct
 
