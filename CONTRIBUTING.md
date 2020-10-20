@@ -1,6 +1,6 @@
 # Contribute to Project Template
 
-Thanks for your interest in contributing to our project. This page will give you a quick overview of how things are organised and most importantly, how to get involved.
+Thanks for your interest in contributing to our project. This page will give you a quick overview of how things are organized and most importantly, how to get involved.
 
 Everyone is welcome to contribute, and we value everybody's contribution. Code is thus not the only way to help the community. Answering questions, helping others, reaching out and improving the documentations are immensely valuable to the projects as well.
 
@@ -32,7 +32,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 
 You are welcome to contribute code in order to fix a bug, to implement a new feature, to propose new documentation, or just to fix a typo. Check out [good first issue](https://github.com/mltooling/project-template/labels/good%20first%20issue) and [help wanted](https://github.com/mltooling/project-template/labels/help%20wanted) issues if you want to find open issues to implement.
 
-- Before writing code, we strongly advise you to search through the exising PRs or issues to make sure that nobody is already working on the same thing. If you are unsure, it is always a good idea to open an issue to get some feedback.
+- Before writing code, we strongly advise you to search through the existing PRs or issues to make sure that nobody is already working on the same thing. If you are unsure, it is always a good idea to open an issue to get some feedback.
 - Should you wish to work on an existing issue that has not yet been claimed, please claim it first by commenting on the GitHub issue that you want to work on and begin work (the maintainers will assign it to your GitHub user as soon as they can). This is to prevent duplicated efforts from other contributors on the same issue.
 - To contribute changes, always branch from the `main` branch and after implementing the changes create a pull request as described [below](#opening-a-pull-request).
 - Commits should be as small as possible while ensuring that each commit is correct independently (i.e., each commit should compile and pass tests). Also, make sure to follow the commit message guidelines.
@@ -107,7 +107,7 @@ Commit messages should be as standardized as possible within the repository. Nam
 ### Review & merging of a pull request
 
 1. Every pull request will be reviewed by at least 1 reviewer and will also trigger CI pipelines to automatically build and test the changes. If your PR is not getting reviewed for a longer time, you can @-reply a reviewer in the pull request or comment.
-2. Every comment on PR should be accepted as a change request and should be discussed. When something is optional, it should be noted in the comment. If a review requires you to make additional changes, please test the changes again. Create a comment on the PR to notify the reviewers that your amendments are ready for another round of review. 
+2. Every comment on PR should be accepted as a change request and should be discussed. When something is optional, it should be noted in the comment. If a review requires you to make additional changes, please test the changes again. Create a comment on the PR to notify the reviewers that your amendments are ready for another round of review.
 3. Once the pull request is approved by at least 1 reviewer, the pull request can be merged. `Squash & merge` is the preferred merging strategy.
 4. In case a new (feature) branch was created in the main repository, please delete this branch after a successful merge.
 
@@ -141,7 +141,7 @@ Commit messages should be as standardized as possible within the repository. Nam
 
 #### Code formatting
 
-We use [black](https://github.com/ambv/black) for code formatting and [isort](https://github.com/PyCQA/isort) for import sorting. The following comands run `black` and `isort` on all Python files of a project (when executed in the project root):
+We use [black](https://github.com/ambv/black) for code formatting and [isort](https://github.com/PyCQA/isort) for import sorting. The following commands run `black` and `isort` on all Python files of a project (when executed in the project root):
 
 ```bash
 python -m isort --profile black .
@@ -182,7 +182,7 @@ You can also configure `black` and `isort` inside your code editor. For example,
 
 #### Code linting
 
-We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. The following comands run `flake8` and `mypy` - in addition to on all python files of a project (when executed in the project root):
+We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. The following commands run `flake8` and `mypy` - in addition to on all python files of a project (when executed in the project root):
 
 ```bash
 # type checks
@@ -215,7 +215,7 @@ We use the [pytest](http://doc.pytest.org/) framework for testing. For more info
 python -m pytest .
 ```
 
-When adding tests, make sure to use descriptive names, keep the code short and concise and only test for one behaviour at a time. Try to `parametrize` test cases wherever possible and avoid unnecessary imports. Extensive tests that take a long time should be marked with `@pytest.mark.slow`.
+When adding tests, make sure to use descriptive names, keep the code short and concise and only test for one behavior at a time. Try to `parametrize` test cases wherever possible and avoid unnecessary imports. Extensive tests that take a long time should be marked with `@pytest.mark.slow`.
 
 ### Java conventions
 
@@ -226,6 +226,7 @@ When adding tests, make sure to use descriptive names, keep the code short and c
 - Code Formatter: [google-java-format](https://github.com/google/google-java-format)
 - Linting: [sonarlint](https://www.sonarlint.org/)
 - Testing: [JUnit 5](https://junit.org/junit5/)
+- Logging: [SLF4J](https://github.com/qos-ch/slf4j) with [LOG4J](https://logging.apache.org/log4j)
 - Minimum compatibility: Java 11
 
 #### Code style & naming
@@ -236,7 +237,7 @@ When adding tests, make sure to use descriptive names, keep the code short and c
 
 #### Code formatting
 
-We use [google-java-format](https://github.com/google/google-java-format) for code formatting and import sorting. The following comand run `google-java-format` on a Java file:
+We use [google-java-format](https://github.com/google/google-java-format) for code formatting and import sorting. The following command run `google-java-format` on a Java file:
 
 ```bash
 google-java-format --replace path/to/file.java
@@ -265,7 +266,13 @@ mvn verify
 
 ### React conventions
 
-_TBD_
+#### Code style & naming
+
+#### Code formatting
+
+#### Code linting
+
+#### Adding & running tests
 
 ## Code of Conduct
 
