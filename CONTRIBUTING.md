@@ -114,7 +114,17 @@ Commit messages should be as standardized as possible within the repository. Nam
 
 ### Python conventions
 
-Our python components use [black](https://github.com/ambv/black) for code formatting, [isort](https://github.com/PyCQA/isort) for import sorting, [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. All code should be written compatible with Python 3.6+, with [type hints](https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html) wherever possible.
+- Code Style: [PEP8](https://www.python.org/dev/peps/pep-0008/)
+- Documentation Style: [Google Style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
+- Naming Conventions: [naming-convention-guides](https://github.com/naming-convention/naming-convention-guides/tree/master/python#python-naming-convention)
+- Build Tool: [setuptool](https://github.com/pypa/setuptools)
+- Code Formatter: [black](https://github.com/psf/black)
+- Import Sorting: [isort](https://github.com/PyCQA/isort)
+- Linting: [flake8](https://github.com/PyCQA/flake8)
+- Type Checking: [mypy](https://github.com/python/mypy)
+- Testing: [pytest](http://doc.pytest.org/)
+- Use type hints wherever possible: [Cheatsheet](https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html)
+- Minimum compatibility: Python 3.6
 
 #### Code style & naming
 
@@ -234,7 +244,7 @@ We recommend to use [Sonarlint](https://www.sonarlint.org/) for linting in Java.
 
 #### Adding & running tests
 
-We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more info on this, see the [junit documentation](https://junit.org/junit5/docs/current/user-guide/). Tests for classes live in their own directories of the same name inside the `src/test` folder. To be discovered, all test classes need to be suffixed with `Test`. To run the test suite via maven, execute in the project root:
+We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more info on this, see the [junit documentation](https://junit.org/junit5/docs/current/user-guide/). Tests for classes live in their own directories of the same name inside the `src/test` folder. To be discovered, all test classes need to be suffixed with `Test`. To run the test suite via maven, execute the following command in the project root:
 
 ```bash
 # run test suite:
