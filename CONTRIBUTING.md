@@ -150,7 +150,7 @@ python -m black --check .
 python -m isort --profile black --check-only .
 ```
 
-You can also configure `black` and `isort` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/), you can add the following to your `settings.json` for formatting and auto-format your files on save:
+You can also configure `black` and `isort` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you can add the following to your `settings.json` for formatting and auto-format your files on save:
 
 ```json
 {
@@ -184,7 +184,7 @@ python -m mypy .
 python -m flake8 .
 ```
 
-You can also configure `flake8` and `mypy` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/), you can add the following to your `settings.json` for linting and type checking:
+You can also configure `flake8` and `mypy` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you can add the following to your `settings.json` for linting and type checking:
 
 ```json
 {
