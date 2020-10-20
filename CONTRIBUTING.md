@@ -8,14 +8,14 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 
 1. [Issues and bug reports](#issues-and-bug-reports)
 2. [Contributing to the code base](#contributing-to-the-code-base)
-    2.1. [Development instructions](#development-instructions)
-    2.2. [Commit messages guidelines](#commit-message-guidelines)
-    2.3. [Opening a pull request](#opening-a-pull-request)
-    2.4. [Review & merging of a pull request](#review--merging-of-a-pull-request)
+    - [Development instructions](#development-instructions)
+    - [Commit messages guidelines](#commit-messages-guidelines)
+    - [Opening a pull request](#opening-a-pull-request)
+    - [Review & merging of a pull request](#review--merging-of-a-pull-request)
 3. [Code conventions](#code-conventions)
-    3.1. [Python conventions](#python-conventions)
-    3.2. [React conventions](#java-conventions)
-    3.3. [Java conventions](#java-conventions)
+    - [Python conventions](#python-conventions)
+    - [React conventions](#java-conventions)
+    - [Java conventions](#java-conventions)
 4. [Code of conduct](#code-of-conduct)
 
 ## Issues and bug reports
@@ -145,7 +145,6 @@ You can also configure `black` and `isort` inside your code editor. For example,
 {
     "python.formatting.provider": "black",
     "python.sortImports.args": [
-        // black compatible attributes
         "--multi-line=3",
         "--trailing-comma",
         "--force-grid-wrap=0",
