@@ -6,6 +6,7 @@
 # https://github.com/pypa/sampleproject/blob/master/setup.py
 # https://blog.ionelmc.ro/2014/05/25/python-packaging
 
+
 from __future__ import absolute_import, print_function
 
 import io
@@ -24,7 +25,7 @@ URL = "https://github.com/mltooling/project-template"
 EMAIL = "team@mltooling.org"
 AUTHOR = "ML Tooling Team"
 LICENSE = "MIT"
-REQUIRES_PYTHON = ">=2.5"
+REQUIRES_PYTHON = ">=3.6"
 VERSION = (
     None  # Only set version if you like to overwrite the version in __version__.py
 )
@@ -37,10 +38,8 @@ VERSION = (
 # If you do change the License, remember to change the Trove Classifier for that!
 
 # Check if version is right
-if sys.version_info[:2] < (2, 7) or (
-    sys.version_info[:1] == 3 and sys.version_info[:2] < (3, 5)
-):
-    raise Exception("This package needs Python 3.5 or later.")  # Python 2.7,
+if sys.version_info[:1] == 3 and sys.version_info[:2] < (3, 6):
+    raise Exception("This package needs Python 3.6 or later.")
 
 here = os.path.abspath(os.path.dirname(__file__))
 
