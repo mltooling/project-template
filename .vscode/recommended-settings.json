@@ -1,14 +1,16 @@
 {
-  // Copy these settings into the settings.json in the workspace
+  // Move these settings to the settings.json in your workspace
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  // Web Development
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  // Python Settings
   "[python]": {
     "editor.formatOnPaste": false,
     "editor.defaultFormatter": "ms-python.python",
@@ -32,5 +34,14 @@
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": ["--ignore=E203,E501,W503"],
   "python.autoComplete.addBrackets": true,
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  // Java Settings
+  "java.format.enabled": true,
+  "java.saveActions.organizeImports": true,
+  "java.format.onType.enabled": true,
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.formatOnSave": true
+  }
 }

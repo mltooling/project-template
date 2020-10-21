@@ -1,8 +1,5 @@
-<!--
-Thank you for creating a pull request 🙌 ❤️
--->
-
 **What kind of change does this PR introduce?**
+
 <!-- (Update "[ ]" to "[x]" to check a box) -->
 
 - [ ] Bugfix

@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD024 -->
 # Contribute to Project Template
 
 Thanks for your interest in contributing to our project. This page will give you a quick overview of how things are organized and most importantly, how to get involved.
@@ -15,8 +16,8 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
     - [Git Workflow & Versioning](#git-workflow--versioning)
 3. [Code conventions](#code-conventions)
     - [Python conventions](#python-conventions)
-    - [React conventions](#java-conventions)
     - [Java conventions](#java-conventions)
+    - [React conventions](#java-conventions)
 4. [Code of conduct](#code-of-conduct)
 
 ## Issues and bug reports
@@ -88,20 +89,20 @@ To trigger the release, the version and test argument must be provided. The vers
 
 ### Commit messages guidelines
 
-Commit messages should be as standardized as possible within the repository. Naming via [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) is preferred, and necessary for all pull requests titles that require a version change. A few best practices:
+Commit messages should be as standardized as possible within the repository. A few best practices:
 
 1. Always use simple present (imperative mood) to describe what the commit does. Explain what & why, not how!
 2. Start with a capital letter.
 3. Don’t end the subject line with a period.
 4. Descriptive but short subject line (< 50 chars).
 5. Link to issues by mentioning them in commit messages.
-6. Examples: `Docs: add image to documentation section 3`, `Fix: memory leak. Closes #3`, `Refactor: split method X into two methods`. Refer to [this blog](https://chris.beams.io/posts/git-commit/) for more information about good commit messages.
+6. Examples: `Add image to documentation section 3`, `Fix memory leak. Closes #3`, `Split method X into two methods`. Refer to [this blog](https://chris.beams.io/posts/git-commit/) for more information about good commit messages.
 
 ### Opening a pull request
 
-1. **Set title**. The title should follow the naming via [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and the commit message guidelines (example: `Fix: memory leak in picture loader`). If the pull request closes a specific issue, the title can be used to mention the issue (example: `Fix: memory leak in picture loader. Closes #3`). Prefix the title with `[WIP]` *(Work In Progress)* to indicate that you are not done but need clarification or an explicit review before you can continue your work item.
+1. **Set title**. The title should follow our [commit message guidelines](#commit-messages-guidelines) (example: `Fix memory leak in picture loader`). If the pull request closes a specific issue, the title can be used to mention the issue (example: `Fix memory leak in picture loader. Closes #3`). Prefix the title with `[WIP]` *(Work In Progress)* to indicate that you are not done but need clarification or an explicit review before you can continue your work item.
 2. **Add appropriate labels** (e.g. bug, enhancement, documentation).
-3. **Set description:** Describe what the pull request is about and add some bullet points describing what’s changed and why (make use of the provided template). Link the pull request to all relevant issues in the pull request description (e.g. `Closes #10`). Find more information on linking pull requests to issues [here](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue).
+3. **Set description:** Describe what the pull request is about and add some bullet points describing what’s changed and why (make use of the provided template). Link the pull request to all relevant issues in the pull request description (e.g. `Closes #10`). Find more information on linking pull requests to issues [here](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue). Add `BREAKING CHANGE` into the description in case the PR introduces breaking changes.
 4. Open the pull request and make sure existing tests and checks pass. The PR will only be merged into `main` if it is consistent with style and linting guidelines.
   
 ### Review & merging of a pull request
