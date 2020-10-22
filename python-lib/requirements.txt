@@ -1,1 +1,4 @@
+# Our libraries
+# Third party dependencies
 setuptools
+# Optional dependencies

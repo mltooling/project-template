@@ -40,6 +40,7 @@
   "java.saveActions.organizeImports": true,
   "java.format.onType.enabled": true,
   "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.checkstyle.configuration": "/google_checks.xml",
   "[java]": {
     "editor.defaultFormatter": "redhat.java",
     "editor.formatOnSave": true
