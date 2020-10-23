@@ -1,0 +1,1 @@
+You can find the changelog of this project in the [release section]([http](https://github.com/mltooling/project-template/releases)) on Github. 
