@@ -17,7 +17,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 3. [Code conventions](#code-conventions)
     - [Python conventions](#python-conventions)
     - [Java conventions](#java-conventions)
-    - [React conventions](#java-conventions)
+    - [React conventions](#react-conventions)
 4. [Code of conduct](#code-of-conduct)
 
 ## Issues and bug reports
@@ -33,7 +33,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 
 You are welcome to contribute code in order to fix a bug, to implement a new feature, to propose new documentation, or just to fix a typo. Check out [good first issue](https://github.com/mltooling/project-template/labels/good%20first%20issue) and [help wanted](https://github.com/mltooling/project-template/labels/help%20wanted) issues if you want to find open issues to implement.
 
-- Before writing code, we strongly advise you to search through the existing PRs or issues to make sure that nobody is already working on the same thing. If you are unsure, it is always a good idea to open an issue to get some feedback.
+- Before writing code, we strongly advise you to search through the existing PRs or issues to make sure that nobody is already working on the same thing. If you find your issue already exists, make relevant comments and add your reaction (👍 - upvotem, 👎 - downvote). If you are unsure, it is always a good idea to open an issue to get some feedback.
 - Should you wish to work on an existing issue that has not yet been claimed, please claim it first by commenting on the GitHub issue that you want to work on and begin work (the maintainers will assign it to your GitHub user as soon as they can). This is to prevent duplicated efforts from other contributors on the same issue.
 - To contribute changes, always branch from the `main` branch and after implementing the changes create a pull request as described [below](#opening-a-pull-request).
 - Commits should be as small as possible while ensuring that each commit is correct independently (i.e., each commit should compile and pass tests). Also, make sure to follow the commit message guidelines.
