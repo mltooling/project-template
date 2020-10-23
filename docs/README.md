@@ -1,5 +1,6 @@
-# ML Lab Documentation
-Documentation for setting up and using the ML Lab. For documentation on how to use this markdown documentation, visit the [mkdocs-material documentation](http://squidfunk.github.io/mkdocs-material/specimen)  and this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+# Documentation
+
+For information on how to use this markdown documentation, visit the [mkdocs-material documentation](http://squidfunk.github.io/mkdocs-material/specimen) and this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 ## Update Documentation
 
@@ -18,7 +19,7 @@ python run.py
 ### Deploy Updates to Github Pages
 
 ```
-python deploy.py
+python build.py --deploy
 ```
 
 Please, do not forget to push your changes via git as well.
