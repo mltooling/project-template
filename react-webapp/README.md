@@ -8,7 +8,7 @@ The Sections below explain the used style guides and configurations for this pro
 
 ## Develop
 
-This project uses [React](https://reactjs.org) as the main framework. 
+This project uses [React](https://reactjs.org) as the main framework. Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible.
 
 For code styling, [eslint](https://eslint.org) is used for linting and [prettier](https://prettier.io) is used for formatting (see [this page](https://prettier.io/docs/en/comparison.html) for learning about linting vs. formatting). The linting rules are listed in [.eslintrc.js](./eslintrc.js). The configuration for prettier can be found in [.prettierrc](./prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript). For CSS styling, [stylelint](https://stylelint.io) is used for which the configuration can be found in the [.stylelintrc.json](./.stylelintrc.json) file.
 
@@ -83,8 +83,8 @@ Please have a look at the [package.json](https://github.com/mltooling/project-te
 
 ### VS Code
 
-- For the settings, have a look at the *Web Development* Section of our [Recommended Settings](https://github.com/mltooling/project-template/blob/main/.vscode/recommended-settings.json).
-- For recommended extensions, have a look at the *General Development* and *Web Development* Sections of our [Extensions list](https://github.com/mltooling/project-template/blob/main/.vscode/extensions.json).
+- For the settings, have a look at the _Web Development_ Section of our [Recommended Settings](https://github.com/mltooling/project-template/blob/main/.vscode/recommended-settings.json).
+- For recommended extensions, have a look at the _General Development_ and _Web Development_ Sections of our [Extensions list](https://github.com/mltooling/project-template/blob/main/.vscode/extensions.json).
 
 ### Create React App
 
