@@ -51,9 +51,10 @@ You will also see any lint errors in the console.
 
 The project uses follwing structure:
 
-- /src: Contains the source code of the web app, for example the React components. Development usually happens in here. The `/src/index.jsx` is the entry point into the application.
-- /public: Contains the default public resources that must be available such as the `index.html`
-- /build: The generated directory that contains the bundled web app
+- `/src`: Contains the source code of the web app, for example the React components. Development usually happens in here. The `/src/index.jsx` is the entry point into the application.
+- `/public`: Contains the default public resources that must be available such as the `index.html`
+- `/build`: The generated directory that contains the bundled web app. This folder is ignored by `git` and should not be pushed
+- `node_modules`: The installed packages. This folder is ignored by `git` and should not be pushed.
 
 [ ] TODO: add information about the code structure
 
