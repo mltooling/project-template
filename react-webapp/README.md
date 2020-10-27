@@ -8,7 +8,7 @@ The Sections below explain the used style guides and configurations for this pro
 
 ## Develop
 
-This project uses [React](https://reactjs.org) as the main framework. Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible.
+This project uses [React](https://reactjs.org) as the main framework. Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible. Functions should in general be written in the [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) notation. Arrow functions should be defined outside of the `render` function to avoid [any performance problems](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render).
 
 For code styling, [eslint](https://eslint.org) is used for linting and [prettier](https://prettier.io) is used for formatting (see [this page](https://prettier.io/docs/en/comparison.html) for learning about linting vs. formatting). The linting rules are listed in [.eslintrc.js](./eslintrc.js). The configuration for prettier can be found in [.prettierrc](./prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript). For CSS styling, [stylelint](https://stylelint.io) is used for which the configuration can be found in the [.stylelintrc.json](./.stylelintrc.json) file.
 
@@ -16,9 +16,7 @@ It was bootstrapped with [Create React App](https://github.com/facebook/create-r
 
 The used package manager for installing packages is [yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable).
 
-Docs should be written in [jsdoc](https://jsdoc.app/about-getting-started.html) format, though overall we advocate self-explanatory code over comments.
-
-- [ ] TODO: check for JSDOC extension
+Docs should be written in [JSDoc](https://jsdoc.app/about-getting-started.html) format, though overall we advocate self-explanatory code over comments.
 
 ### Style
 
@@ -85,6 +83,7 @@ Please have a look at the [package.json](https://github.com/mltooling/project-te
 
 - For the settings, have a look at the _Web Development_ Section of our [Recommended Settings](https://github.com/mltooling/project-template/blob/main/.vscode/recommended-settings.json).
 - For recommended extensions, have a look at the _General Development_ and _Web Development_ Sections of our [Extensions list](https://github.com/mltooling/project-template/blob/main/.vscode/extensions.json).
+- For JSDoc, no extension is needed as it is [built in VS Code](https://code.visualstudio.com/docs/languages/javascript#_jsdoc-support). Just type `\**` and autocomplete. When using types in the comment, VS Code even considers the typing.
 
 ### Create React App
 
