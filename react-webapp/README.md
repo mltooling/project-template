@@ -59,7 +59,14 @@ The project uses follwing structure:
 - `build/`: The generated directory that contains the bundled web app. This folder is ignored by `git` and should not be pushed
 - `node_modules/`: The installed packages. This folder is ignored by `git` and should not be pushed.
 
-- [ ] TODO: add information about the in-depth code structure
+Inside of the `src/` folder, there should be following structure (inspired by this [blog post](https://www.devaradise.com/react-project-folder-structure)):
+
+- `components/`: Capsulated components appear here. Artifacts that are specific to a component should be packaged together, for example `components/dashboard/` should have all components and styles and images that are just relevant for the `dashboard` component.
+- `pages/`: Reflects the routes of the application and is composed of different components. Each component in this folder should have its own route.
+- `utils/`: Functionality that is generally relevant for your application and could be used in multiple places.
+- `app/`: Contains app essentials such as routes and the store in form of `store.js` [when using Redux](https://redux.js.org/tutorials/essentials/part-1-overview-concepts).
+- `services/`: Contains JavaScript functions and clients that manage API integrations.
+- `assets/`: Should contain style and images and other resources that are generally relevant for your application and not only for a specific component.
 
 #### Storybook
 
