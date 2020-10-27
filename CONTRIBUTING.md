@@ -183,7 +183,7 @@ You can also configure `black` and `isort` inside your code editor. For example,
 
 #### Code linting
 
-We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. The following commands run `flake8` and `mypy` on all python files of the compontent (when executed in the compontent root):
+We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. You can find our flake8 configuration inside the `setup.cfg` or [here](.github/linters/.flake8). The following commands run `flake8` and `mypy` on all python files of the compontent (when executed in the compontent root):
 
 ```bash
 # type checks
