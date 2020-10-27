@@ -10,6 +10,7 @@
     "humao.rest-client",
     "esbenp.prettier-vscode",
     "42Crunch.vscode-openapi",
+    "EditorConfig.EditorConfig",
     // Collaboration
     "eamodio.gitlens",
     "MS-vsliveshare.vsliveshare-pack",
@@ -25,6 +26,7 @@
     "shd101wyy.markdown-preview-enhanced",
     // Web Development
     "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
     "christian-kohler.npm-intellisense",
     "eg2.vscode-npm-script",
     "Zignd.html-css-class-completion",
