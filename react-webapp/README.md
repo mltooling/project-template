@@ -18,6 +18,8 @@ It was bootstrapped with [Create React App](https://github.com/facebook/create-r
 
 The used package manager for installing packages is [yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable).
 
+It uses Storybook (see [Section](#storybook)) for documenting components. For more information about testing, check [this Section](#testing).
+
 ### Style
 
 When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](#develop). If you don't have an IDE with installed plugins, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
