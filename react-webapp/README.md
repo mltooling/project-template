@@ -8,7 +8,9 @@ The Sections below explain the used style guides and configurations for this pro
 
 ## Develop
 
-This project uses [React](https://reactjs.org) as the main framework, [eslint](https://eslint.org) for linting, and [prettier](https://prettier.io) for formatting (see [this page](https://prettier.io/docs/en/comparison.html) for learning about linting vs. formatting). The linting rules are listed in [.eslintrc.js](./eslintrc.js). The configuration for prettier can be found in [.prettierrc](./prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript).
+This project uses [React](https://reactjs.org) as the main framework. 
+
+For code styling, [eslint](https://eslint.org) is used for linting and [prettier](https://prettier.io) is used for formatting (see [this page](https://prettier.io/docs/en/comparison.html) for learning about linting vs. formatting). The linting rules are listed in [.eslintrc.js](./eslintrc.js). The configuration for prettier can be found in [.prettierrc](./prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript). For CSS styling, [stylelint](https://stylelint.io) is used for which the configuration can be found in the [.stylelintrc.json](./.stylelintrc.json) file.
 
 It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) (`yarn create react-app react-webapp`) and, thus, uses the pre-configured webpack and babel build tools.
 
@@ -20,10 +22,11 @@ Docs should be written in [jsdoc](https://jsdoc.app/about-getting-started.html) 
 
 ### Style
 
-When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](./README.md#develop). If you don't have an IDE with installed plugins for eslint or prettier, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
+When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](./README.md#develop). If you don't have an IDE with installed plugins, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
 
 - `./node_modules/.bin/prettier --config .prettierrc --write <path-to-your-modified-file>`: this command formats the file and saves it.
 - `./node_modules/.bin/eslint <path-to-your-modified-file>.js`: this command just shows the problems, but does not fix them automatically.
+- `./node_modules/.bin/stylelint "**/*.css"`: this commands shows the problems in all your project's css files, but does not fix them automatically.
 
 ### Build
 
@@ -49,6 +52,8 @@ You will also see any lint errors in the console.
 
 > Add some information here about the structure of the app, what the entrypoint is, and what tools are used.
 
+#### Project Structure
+
 The project uses follwing structure:
 
 - `src/`: Contains the source code of the web app, for example the React components. Development usually happens in here. The `/src/index.jsx` is the entry point into the application.
@@ -56,7 +61,17 @@ The project uses follwing structure:
 - `build/`: The generated directory that contains the bundled web app. This folder is ignored by `git` and should not be pushed
 - `node_modules/`: The installed packages. This folder is ignored by `git` and should not be pushed.
 
-- [ ] TODO: add information about the code structure
+- [ ] TODO: add information about the in-depth code structure
+
+#### Storybook
+
+- [ ] TODO: add information about Storybook
+
+#### Testing with Jest
+
+- [ ] TODO: add information about testing with Jest
+
+---
 
 ## More Information about this Template
 
