@@ -16,7 +16,7 @@ The used package manager for installing packages is [yarn](https://classic.yarnp
 
 Docs should be written in [jsdoc](https://jsdoc.app/about-getting-started.html) format, though overall we advocate self-explanatory code over comments.
 
-[ ] TODO: check for JSDOC extension
+- [ ] TODO: check for JSDOC extension
 
 ### Style
 
@@ -55,7 +55,7 @@ The project uses follwing structure:
 - /public: Contains the default public resources that must be available such as the `index.html`
 - /build: The generated directory that contains the bundled web app
 
-[ ] TODO: add information about the code structure
+- [ ] TODO: add information about the code structure
 
 ## More Information about this Template
 
