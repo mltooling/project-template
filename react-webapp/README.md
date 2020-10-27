@@ -22,8 +22,8 @@ Docs should be written in [jsdoc](https://jsdoc.app/about-getting-started.html) 
 
 When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](./README.md#develop). If you don't have an IDE with installed plugins for eslint or prettier, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
 
-- `./node_modules/.bin/prettier --config .prettierrc --write <path-to-your-modified-file>`
-- `./node_modules/.bin/eslint <path-to-your-modified-file>.js`
+- `./node_modules/.bin/prettier --config .prettierrc --write <path-to-your-modified-file>`: this command formats the file and saves it.
+- `./node_modules/.bin/eslint <path-to-your-modified-file>.js`: this command just shows the problems, but does not fix them automatically.
 
 ### Build
 
