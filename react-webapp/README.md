@@ -2,10 +2,9 @@
 
 Summary description of the webapp goes here...
 
-## Usage of This Template
+## Usage of this Template
 
-The Sections below explain the used style guides and configurations for this project. The files ... 
-Please have a look at the package.json and check whether the dependencies for react, react-scripts etc. could need an update :)
+The Sections below explain the used style guides and configurations for this project.
 
 ## Develop
 
@@ -16,6 +15,8 @@ It was bootstrapped with [Create React App](https://github.com/facebook/create-r
 The used package manager for installing packages is [yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable).
 
 Docs should be written in [jsdoc](https://jsdoc.app/about-getting-started.html) format, though overall we advocate self-explanatory code over comments.
+
+[ ] TODO: check for JSDOC extension
 
 ### Style
 
@@ -54,10 +55,15 @@ The project uses follwing structure:
 - /public: Contains the default public resources that must be available such as the `index.html`
 - /build: The generated directory that contains the bundled web app
 
+[ ] TODO: add information about the code structure
 
 ## More Information about this Template
 
 > Remove this Section from your template for the actual project!
+
+### Installed Packages
+
+Please have a look at the [package.json](https://github.com/mltooling/project-template/blob/react-webapp/react-webapp/package.json) and check whether the dependencies for react, react-scripts etc. should be updated.
 
 ### VS Code
 
