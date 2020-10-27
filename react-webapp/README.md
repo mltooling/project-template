@@ -20,11 +20,13 @@ Docs should be written in [JSDoc](https://jsdoc.app/about-getting-started.html) 
 
 ### Style
 
-When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](./README.md#develop). If you don't have an IDE with installed plugins, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
+When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](#develop). If you don't have an IDE with installed plugins, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
 
 - `./node_modules/.bin/prettier --config .prettierrc --write <path-to-your-modified-file>`: this command formats the file and saves it.
 - `./node_modules/.bin/eslint <path-to-your-modified-file>.js`: this command just shows the problems, but does not fix them automatically.
 - `./node_modules/.bin/stylelint "**/*.css"`: this commands shows the problems in all your project's css files, but does not fix them automatically.
+
+Sometimes, you have to do something that is not allowed by the linting rules. For example, property spreading in React makes sense sometimes. In this example, you can disable the linter for the specific line by adding `// eslint-disable-line react/jsx-props-no-spreading`. Instead of disabling a rule globally, this forces you to think about your decision instead of allowing slopiness by default.
 
 ### Build
 
@@ -67,14 +69,24 @@ Inside of the `src/` folder, there should be following structure (inspired by th
 - `app/`: Contains app essentials such as routes and the store in form of `store.js` [when using Redux](https://redux.js.org/tutorials/essentials/part-1-overview-concepts).
 - `services/`: Contains JavaScript functions and clients that manage API integrations.
 - `assets/`: Should contain style and images and other resources that are generally relevant for your application and not only for a specific component.
+- `stories/`: Contains general Storybook files such as introduction and assets that are not directly linked to a specific component. It should not contain the actual component stories.
+
+Add Storybook files (see the [Storybook Section](#storybook)) next to the components they describe. Story files must follow the `<component-name>.stories.jsx` name pattern. For example, if you have a component `src/dashboard/Dashboard.jsx`, put the stories file under `src/dashboard/Dashboard.stories.jsx`.
+
+Add test files next to the code they are testing (see the [Testing Section](#testing)). Test files must follow the `<component-name>.test.jsx` name pattern.
 
 #### Storybook
 
-- [ ] TODO: add information about Storybook
+When we want to document our components further than using JSDoc, we use [Storybook](https://storybook.js.org/docs/react/get-started/introduction). In the [Stories directory](./src/stories/) you can find some example stories (this project was initialized via `npx sb init`).  
+The Storybook server can be started via `yarn run storybook`.
 
-#### Testing with Jest
+#### Testing
 
-- [ ] TODO: add information about testing with Jest
+This project uses [Jest](https://create-react-app.dev/docs/running-tests) and [react-testing-library](https://github.com/testing-library/react-testing-library) for testing as it comes pre-bundled with _Create React App_.
+The official Jest documentation recommends to add at least smoke tests to make sure that components render ([source](https://create-react-app.dev/docs/running-tests#testing-components)), so we go along with this recommendation ;)
+Use `test()` instead of it's alias `it()` ([source](https://jestjs.io/docs/en/api.html#testname-fn-timeout)). See the [App.test.jsx](./src/App.test.jsx) file for an example.
+
+To run the tests, execute `yarn test`. To see test coverage, execute `yarn test -- --coverage` ([source](https://create-react-app.dev/docs/running-tests/#coverage-reporting)).
 
 ---
 
@@ -84,13 +96,14 @@ Inside of the `src/` folder, there should be following structure (inspired by th
 
 ### Installed Packages
 
-Please have a look at the [package.json](https://github.com/mltooling/project-template/blob/react-webapp/react-webapp/package.json) and check whether the dependencies for react, react-scripts etc. should be updated.
+Please have a look at the [package.json](https://github.com/mltooling/project-template/blob/react-webapp/react-webapp/package.json) and check whether the dependencies for react, react-scripts etc. should be updated. Also, check whether package updates influence some configuration files such as the configuration of [.storybook](./.storybook).
 
 ### VS Code
 
 - For the settings, have a look at the _Web Development_ Section of our [Recommended Settings](https://github.com/mltooling/project-template/blob/main/.vscode/recommended-settings.json).
 - For recommended extensions, have a look at the _General Development_ and _Web Development_ Sections of our [Extensions list](https://github.com/mltooling/project-template/blob/main/.vscode/extensions.json).
 - For JSDoc, no extension is needed as it is [built in VS Code](https://code.visualstudio.com/docs/languages/javascript#_jsdoc-support). Just type `\**` and autocomplete. When using types in the comment, VS Code even considers the typing.
+- Sometimes, linting errors don't disappear even though you seem to have fixed them. Close the file and re-open it to see whether the error persists.
 
 ### Create React App
 
