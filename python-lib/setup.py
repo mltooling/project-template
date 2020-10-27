@@ -17,7 +17,7 @@ from os.path import basename, splitext
 
 from setuptools import find_packages, setup  # type: ignore
 
-# Package meta-data.
+# Package meta-data
 NAME = "python-lib"
 MAIN_PACKAGE = "template_package"  # Change if main package != NAME
 DESCRIPTION = "Python package template."

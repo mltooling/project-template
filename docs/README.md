@@ -1,6 +1,6 @@
 # Documentation
 
-For information on how to use this markdown documentation, visit the [mkdocs-material documentation](http://squidfunk.github.io/mkdocs-material/specimen) and this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+For information on how to use this markdown documentation, visit the [mkdocs-material documentation](http://squidfunk.github.io/mkdocs-material/specimen), this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), and find further markdown extensions [here](https://facelessuser.github.io/pymdown-extensions/).
 
 ## Update Documentation
 

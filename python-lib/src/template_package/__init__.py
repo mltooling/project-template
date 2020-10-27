@@ -1,5 +1,6 @@
-from __future__ import absolute_import
+from . import about
 
-from .about import __version__  # noqa: F401
+# define the version before the other imports since these need it
+__version__ = about.__version__
 
 # TODO do your imports here

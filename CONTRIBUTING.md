@@ -33,7 +33,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 
 You are welcome to contribute code in order to fix a bug, to implement a new feature, to propose new documentation, or just to fix a typo. Check out [good first issue](https://github.com/mltooling/project-template/labels/good%20first%20issue) and [help wanted](https://github.com/mltooling/project-template/labels/help%20wanted) issues if you want to find open issues to implement.
 
-- Before writing code, we strongly advise you to search through the existing PRs or issues to make sure that nobody is already working on the same thing. If you find your issue already exists, make relevant comments and add your reaction (👍 - upvotem, 👎 - downvote). If you are unsure, it is always a good idea to open an issue to get some feedback.
+- Before writing code, we strongly advise you to search through the existing PRs or issues to make sure that nobody is already working on the same thing. If you find your issue already exists, make relevant comments and add your reaction (👍 - upvote, 👎 - downvote). If you are unsure, it is always a good idea to open an issue to get some feedback.
 - Should you wish to work on an existing issue that has not yet been claimed, please claim it first by commenting on the GitHub issue that you want to work on and begin work (the maintainers will assign it to your GitHub user as soon as they can). This is to prevent duplicated efforts from other contributors on the same issue.
 - To contribute changes, always branch from the `main` branch and after implementing the changes create a pull request as described [below](#opening-a-pull-request).
 - Commits should be as small as possible while ensuring that each commit is correct independently (i.e., each commit should compile and pass tests). Also, make sure to follow the commit message guidelines.
@@ -142,7 +142,7 @@ Commit messages should be as standardized as possible within the repository. A f
 
 #### Code formatting
 
-We use [black](https://github.com/ambv/black) for code formatting and [isort](https://github.com/PyCQA/isort) for import sorting. The following commands run `black` and `isort` on all Python files of a project (when executed in the project root):
+We use [black](https://github.com/ambv/black) for code formatting and [isort](https://github.com/PyCQA/isort) for import sorting. The following commands run `black` and `isort` on all Python files of the component (when executed in the component root):
 
 ```bash
 python -m isort --profile black .
@@ -183,7 +183,7 @@ You can also configure `black` and `isort` inside your code editor. For example,
 
 #### Code linting
 
-We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. The following commands run `flake8` and `mypy` - in addition to on all python files of a project (when executed in the project root):
+We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. You can find our flake8 configuration inside the `setup.cfg` or [here](.github/linters/.flake8). The following commands run `flake8` and `mypy` on all python files of the compontent (when executed in the compontent root):
 
 ```bash
 # type checks
@@ -258,7 +258,7 @@ We recommend to use [Sonarlint](https://www.sonarlint.org/) for linting in Java.
 
 #### Adding & running tests
 
-We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more info on this, see the [junit documentation](https://junit.org/junit5/docs/current/user-guide/). Tests for classes live in their own directories of the same name inside the `src/test` folder. To be discovered, all test classes need to be suffixed with `Test`. To run the test suite via maven, execute the following command in the project root:
+We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more info on this, see the [junit documentation](https://junit.org/junit5/docs/current/user-guide/). Tests for classes live in their own directories of the same name inside the `src/test` folder. To be discovered, all test classes need to be suffixed with `Test`. To run the test suite via maven, execute the following command in the component root:
 
 ```bash
 # run test suite:
@@ -267,13 +267,53 @@ mvn verify
 
 ### React conventions
 
+- Code Style: [Airbnb Style Guide](https://github.com/airbnb/javascript)
+- Documentation Style: [JSDoc](https://jsdoc.app/about-getting-started.html)
+- Build Tool: [webpack](https://webpack.js.org/) (+ [babel](https://babeljs.io/))
+- Package Manager: [yarn](https://yarnpkg.com/)
+- Code Formatter: [prettier](https://github.com/prettier/prettier)
+- Linting: [eslint](https://github.com/eslint/eslint) (javascript) & [stylelint](https://github.com/stylelint/stylelint) (css)
+- Testing: [jest](https://github.com/facebook/jest)
+- Minimum compatibility: Node 12
+
 #### Code style & naming
+
+- **Code style** should follow [Airbnb Style Guide](https://github.com/airbnb/javascript).
+- **Documentation style** should follow the [JSDoc](https://jsdoc.app/about-getting-started.html) convention, though overall we advocate self-explanatory code over comments.
+- **Custom Guidelines:**
+  - Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible.
+  - Functions should in general be written in the [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) notation. Arrow functions should be defined outside of the `render` function to avoid [any performance problems](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render).
 
 #### Code formatting
 
+We use [prettier](https://prettier.io) for code formatting. The following command run `prettier` on a JavaScript file:
+
+```bash
+./node_modules/.bin/prettier --config .prettierrc --write <path/to/file>
+```
+
+Our default configuration for prettier can be found in [.prettierrc](.github/linting/.prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript).
+
+You can also configure `prettier` inside your code editor. For VS Code you can find information [here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+
 #### Code linting
 
+[ESlint](https://eslint.org) is used for linting JavaScript code with the linting rules defined in the [.eslintrc.js](.github/linting/eslintrc.js) file. You can configure eslint for VS Code via [this extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+For CSS linting, [Stylelint](https://stylelint.io) is used for which the configuration can be found in the [.stylelintrc.json](.github/linting/.stylelintrc.json) file. Styleint can be configured in VS Code via [this extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
+
+The following commands run `eslint` and `stylelint` on all files to show linting issues (when executed in the component root):
+
+```bash
+# Run eslint on all javascript files:
+./node_modules/.bin/eslint "**/*.js"
+# Run stylelint on all css files:
+./node_modules/.bin/stylelint "**/*.css"
+```
+
 #### Adding & running tests
+
+_TBD_
 
 ## Code of Conduct
 
