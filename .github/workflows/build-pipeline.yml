@@ -18,7 +18,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJson(env) }}"
       - name: set-input-build-args
         if: ${{ github.event.inputs != null  &&  github.event.inputs.build_args != null}}
         run: echo "::set-env name=BUILD_ARGS::${{ github.event.inputs.build_args }}"
