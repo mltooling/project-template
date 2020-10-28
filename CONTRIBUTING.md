@@ -41,51 +41,47 @@ You are welcome to contribute code in order to fix a bug, to implement a new fea
 
 ### Development Instructions
 
-To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, test, and release) within a containerized environment. While it is not recommended, you can also run the build process on your local environment by using the `--local` argument.
+To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, test, and release) within a containerized environment by using [Github Actions](https://github.com/features/actions) and [Act](https://github.com/nektos/act) to run all actions locally.
 
-#### Requirements
+## Requirements
 
-- Python, Docker
+- [Act](https://github.com/nektos/act#installation), [Docker](https://docs.docker.com/get-docker/)
 
-#### Build
+## Build
 
 Execute this command in the project root folder to compile, assemble, and package all project components:
 
 ```bash
-python build.py --make
+act -s BUILD_ARGS="--make" -j build
 ```
 
-You can also run the build for a specific (sub-)component by running the `build.py` script from the component folder.
-
-For additional script options, run:
+You can also run the build only for a specific (sub-)component by providing the path to the component folder, as shown below:
 
 ```bash
-python build.py --help
+act -s BUILD_ARGS="--make" -s WORKING_DIRECTORY="./docs" -j build
 ```
 
-#### Test
+## Test
 
-Once all the project artifacts are build, you can execute this command in the project root folder to run the integration, unit, style, and linting tests for all components:
+Once all the project artifacts are build, you can execute this command in the project root folder to run the integration & unit tests and style & linting checks for all components:
 
 ```bash
-python build.py --test
+act -s BUILD_ARGS="--make --test" -j build
 ```
 
-To only test a specific component, execute the `build.py` script in the root of the component folder. You can also combine the build and test steps into one command as shown below:
+The `--make --test` steps are configured as default. If you call the job without `BUILD_ARGS`, so you can also just run:
 
 ```bash
-python build.py --make --test
+act -j build
 ```
 
-#### Release
+## Release
 
-To release a new version and publish all relevant artifacts to respective registries (e.g. Docker image to DockerHub), execute:
+To release a new version and publish all relevant artifacts to respective registries (e.g. Docker image to DockerHub), you need to first create a git version tag based on [Semantic Versioning](https://semver.org/) standard and, subsequently, run the release job:
 
 ```bash
-python build.py --make --test --release --version=<MAJOR.MINOR.PATCH>
+git tag vMAJOR.MINOR.PATCH && act -j release
 ```
-
-To trigger the release, the version and test argument must be provided. The version format must follow the [Semantic Versioning](https://semver.org/) standard: `MAJOR.MINOR.PATCH`.
 
 ### Commit messages guidelines
 
