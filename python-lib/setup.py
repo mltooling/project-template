@@ -11,7 +11,6 @@ from __future__ import absolute_import, print_function
 
 import io
 import os
-import sys
 from glob import glob
 from os.path import basename, splitext
 
@@ -37,10 +36,6 @@ VERSION = (
 # Except, perhaps the License and Trove Classifiers!
 # If you do change the License, remember to change the Trove Classifier for that!
 
-# Check if version is right
-if sys.version_info[:1] == 3 and sys.version_info[:2] < (3, 6):
-    raise Exception("This package needs Python 3.6 or later.")
-
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Import the README and use it as the long-description.
@@ -51,9 +46,9 @@ with io.open(os.path.join(here, "README.md"), encoding="utf-8") as f:
 
 # Read the requirements.txt and use it as the setup.py requirements
 with io.open(os.path.join(here, "requirements.txt"), encoding="utf-8") as f:
-    requirements = [line.rstrip() for line in f.readlines()]
+    requirements = [line.rstrip() for line in f.readlines() if not line.startswith("#")]
 
-# Load the package's __version__.py module as a dictionary.
+# Load the package's about.py module as a dictionary.
 about = {}  # type: dict
 if not VERSION:
     with open(os.path.join(here, os.path.join("src", MAIN_PACKAGE), "about.py")) as f:  # type: ignore
