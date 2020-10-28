@@ -31,5 +31,6 @@ if [ -z "$INPUT_BUILD_ARGS" ]; then
     INPUT_BUILD_ARGS="--make --test"
 fi
 
+printenv
 pwd
 echo "python -u build.py $INPUT_BUILD_ARGS"
