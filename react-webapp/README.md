@@ -20,6 +20,8 @@ The used package manager for installing packages is [yarn](https://classic.yarnp
 
 It uses Storybook (see [Section](#storybook)) for documenting components. For more information about testing, check [this Section](#testing).
 
+- [ ] Add information about styled component (check with MaterialUI)
+
 ### Style
 
 When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](#develop). If you don't have an IDE with installed plugins, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
@@ -59,7 +61,7 @@ You will also see any lint errors in the console.
 The project uses follwing structure:
 
 - `src/`: Contains the source code of the web app, for example the React components. Development usually happens in here. The `/src/index.jsx` is the entry point into the application.
-- `public/`: Contains the default public resources that must be available such as the `index.html`
+- `public/`: Contains the default public resources that must be available such as the `index.html`. It also contains the `locales/` directory for translation files; see the [Internationalization Section](#internationalization) for more information.
 - `build/`: The generated directory that contains the bundled web app. This folder is ignored by `git` and should not be pushed
 - `node_modules/`: The installed packages. This folder is ignored by `git` and should not be pushed.
 
@@ -73,9 +75,15 @@ Inside of the `src/` folder, there should be following structure (inspired by th
 - `assets/`: Should contain style and images and other resources that are generally relevant for your application and not only for a specific component.
 - `stories/`: Contains general Storybook files such as introduction and assets that are not directly linked to a specific component. It should not contain the actual component stories.
 
+If files belong together, for example a component has a related `.stories.jsx` and `.test.jsx` file, put them into an extra folder.
+
 Add Storybook files (see the [Storybook Section](#storybook)) next to the components they describe. Story files must follow the `<component-name>.stories.jsx` name pattern. For example, if you have a component `src/dashboard/Dashboard.jsx`, put the stories file under `src/dashboard/Dashboard.stories.jsx`.
 
 Add test files next to the code they are testing (see the [Testing Section](#testing)). Test files must follow the `<component-name>.test.jsx` name pattern.
+
+#### Internationalization
+
+We use the [react-i18next](https://react.i18next.com) ([GitHub](https://github.com/i18next/react-i18next)) library for translations. The translation file for the required language is loaded dynamically upon need via the [i18next-http-backend](https://github.com/i18next/i18next-http-backend) library. The translation files are placed under [./public/locales](./public/locales). Add a new folder there for extending the languages or edit the languages there to add new translations. You can find an example of how to use the `i18next` in [./src/pages/App/App.jsx](./src/pages/App/App.jsx#L9).
 
 #### Storybook
 

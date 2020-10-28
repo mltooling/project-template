@@ -4,6 +4,9 @@ import './index.css';
 import App from './pages/App/App';
 import reportWebVitals from './utils/reportWebVitals';
 
+// import i18n (needs to be bundled ;))
+import './i18n';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
