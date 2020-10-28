@@ -43,11 +43,11 @@ You are welcome to contribute code in order to fix a bug, to implement a new fea
 
 To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, test, and release) within a containerized environment by using [Github Actions](https://github.com/features/actions) and [Act](https://github.com/nektos/act) to run all actions locally.
 
-## Requirements
+#### Requirements
 
 - [Act](https://github.com/nektos/act#installation), [Docker](https://docs.docker.com/get-docker/)
 
-## Build
+#### Build
 
 Execute this command in the project root folder to compile, assemble, and package all project components:
 
@@ -61,7 +61,7 @@ You can also run the build only for a specific (sub-)component by providing the 
 act -s BUILD_ARGS="--make" -s WORKING_DIRECTORY="./docs" -j build
 ```
 
-## Test
+#### Test
 
 Once all the project artifacts are build, you can execute this command in the project root folder to run the integration & unit tests and style & linting checks for all components:
 
@@ -75,7 +75,7 @@ The `--make --test` steps are configured as default. If you call the job without
 act -j build
 ```
 
-## Release
+#### Release
 
 To release a new version and publish all relevant artifacts to respective registries (e.g. Docker image to DockerHub), you need to first create a git version tag based on [Semantic Versioning](https://semver.org/) standard and, subsequently, run the release job:
 
