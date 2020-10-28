@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
+// styled-components uses Tagged Templates syntax (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals ; https://styled-components.com/docs/basics)
 const StyledButton = styled.button`
   margin-top: 12px;
   color: ${(props) => (props.isEnabled ? 'white' : 'black')};
