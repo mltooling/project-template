@@ -41,7 +41,7 @@ You are welcome to contribute code in order to fix a bug, to implement a new fea
 
 ### Development Instructions
 
-To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, test, and release) within a containerized environment by using [Github Actions](https://github.com/features/actions) and [Act](https://github.com/nektos/act) to run all actions locally.
+To simplify the process of building this project from scratch, we provide build scripts that run all necessary steps (build, test, and release) within a containerized environment by using [Github Actions](https://github.com/features/actions) and [Act](https://github.com/nektos/act) to run all actions locally.
 
 #### Requirements
 
@@ -69,7 +69,7 @@ Once all the project artifacts are build, you can execute this command in the pr
 act -s BUILD_ARGS="--make --test" -j build
 ```
 
-The `--make --test` steps are configured as default. If you call the job without `BUILD_ARGS`, so you can also just run:
+The `--make --test` steps are configured as default. If you call the job without `BUILD_ARGS` the build and test steps will be executed:
 
 ```bash
 act -j build
