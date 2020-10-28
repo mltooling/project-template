@@ -11,20 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: olegtarasov/get-tag@v2
-        id: version
+      - uses: ./.github/actions/get-latest-version
         with:
-          tagRegex: "v(.*)"
-          tagRegexGroup: 1
+          current_commit_only: true
       - uses: ./.github/actions/build-environment
         with:
-          build_args: --make --force --version=$GIT_TAG_NAME
+          build_args: --make --force --version=${{ env.LATEST_VERSION }}
       - uses: ./.github/actions/build-environment
         with:
-          build_args: --test --force --version=$GIT_TAG_NAME
+          build_args: --test --force --version=${{ env.LATEST_VERSION }}
       - uses: ./.github/actions/build-environment
         with:
-          build_args: --release --force --version=$GIT_TAG_NAME
+          build_args: --release --force --version=${{ env.LATEST_VERSION }}
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
           container_registry_url: ${{ secrets.CONTAINER_REGISTRY_URL }}
           container_registry_username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
@@ -34,16 +32,14 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     steps:
-      - uses: olegtarasov/get-tag@v2
-        id: version
+      - uses: ./.github/actions/get-latest-version
         with:
-          tagRegex: "v(.*)"
-          tagRegexGroup: 1
+          current_commit_only: true
       - uses: release-drafter/release-drafter@v5
         with:
-          version: ${{ env.GIT_TAG_NAME }}
-          # name: ${{ env.GIT_TAG_NAME }}
-          # tag: v${{ env.GIT_TAG_NAME }}
+          version: ${{ env.LATEST_VERSION }}
+          # name: ${{ env.LATEST_VERSION }}
+          # tag: v${{ env.LATEST_VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # optional: upload release assets via actions/upload-release-asset@v1
