@@ -1,8 +1,12 @@
 {
   // Move these settings to the settings.json in your workspace
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "terminal.integrated.scrollback": 10000,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.formatOnSave": true
   },
   // Web Development
@@ -12,6 +16,10 @@
   },
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
+  // Docker Settings
+  //"[dockerfile]": {
+  //  "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  //},
   // Python Settings
   "[python]": {
     "editor.formatOnPaste": false,
