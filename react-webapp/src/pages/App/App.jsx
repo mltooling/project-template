@@ -5,8 +5,10 @@ import { useTranslation } from 'react-i18next';
 import logo from './logo.svg';
 import './App.css';
 
+import Button from '../../components/Button';
+
 function App() {
-  const { t } = useTranslation('translation', { useSuspense: false });
+  const { t } = useTranslation();
 
   /**
    * This is an example function in arrow notation and with typed JSDoc.
@@ -34,8 +36,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {t('learn')} React
         </a>
+        <Button />
       </header>
     </div>
   );

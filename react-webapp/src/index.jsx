@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './pages/App/App';
@@ -9,7 +9,10 @@ import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* Suspense is used because otherwise i18n will throw an error */}
+    <Suspense fallback="">
+      <App />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

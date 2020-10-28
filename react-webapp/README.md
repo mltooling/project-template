@@ -8,7 +8,7 @@ The Sections below explain the used style guides and configurations for this pro
 
 ## Develop
 
-This project uses [React](https://reactjs.org) as the main framework. Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible. Functions should in general be written in the [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) notation. Arrow functions should be defined outside of the `render` function to avoid [any performance problems](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render).
+This project uses [React](https://reactjs.org) as the main framework. Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible. Functions should in general be written in the [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) notation. Arrow functions should be defined outside of the `render` function to avoid [any performance problems](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render). For component styling this project uses the [styled-components library](https://github.com/styled-components/styled-components) (see [Section Component Styling](#component-styling)).
 
 For code styling, [eslint](https://eslint.org) is used for linting and [prettier](https://prettier.io) is used for formatting (see [this page](https://prettier.io/docs/en/comparison.html) for learning about linting vs. formatting). The linting rules are listed in [.eslintrc.js](./eslintrc.js). The configuration for prettier can be found in [.prettierrc](./prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript). For CSS styling, [stylelint](https://stylelint.io) is used for which the configuration can be found in the [.stylelintrc.json](./.stylelintrc.json) file.
 
@@ -20,9 +20,7 @@ The used package manager for installing packages is [yarn](https://classic.yarnp
 
 It uses Storybook (see [Section](#storybook)) for documenting components. For more information about testing, check [this Section](#testing).
 
-- [ ] Add information about styled component (check with MaterialUI)
-
-### Style
+### Code Style
 
 When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](#develop). If you don't have an IDE with installed plugins, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
 
@@ -61,7 +59,7 @@ You will also see any lint errors in the console.
 The project uses follwing structure:
 
 - `src/`: Contains the source code of the web app, for example the React components. Development usually happens in here. The `/src/index.jsx` is the entry point into the application.
-- `public/`: Contains the default public resources that must be available such as the `index.html`. It also contains the `locales/` directory for translation files; see the [Internationalization Section](#internationalization) for more information.
+- `public/`: Contains the default public resources that must be available such as the `index.html`. It also contains the `locales/` directory for translation files other than English; see the [Internationalization Section](#internationalization) for more information.
 - `build/`: The generated directory that contains the bundled web app. This folder is ignored by `git` and should not be pushed
 - `node_modules/`: The installed packages. This folder is ignored by `git` and should not be pushed.
 
@@ -81,9 +79,14 @@ Add Storybook files (see the [Storybook Section](#storybook)) next to the compon
 
 Add test files next to the code they are testing (see the [Testing Section](#testing)). Test files must follow the `<component-name>.test.jsx` name pattern.
 
+#### Component Styling
+
+You can find an example of how [styled-components](https://github.com/styled-components/styled-components) can be used [here](./src/components/Button.jsx#L5). With the stated [motivation](https://styled-components.com/docs/basics#motivation) of the library, the style of a component should be bundled with the component and, usually, lies in the same file.
+
 #### Internationalization
 
-We use the [react-i18next](https://react.i18next.com) ([GitHub](https://github.com/i18next/react-i18next)) library for translations. The translation file for the required language is loaded dynamically upon need via the [i18next-http-backend](https://github.com/i18next/i18next-http-backend) library. The translation files are placed under [./public/locales](./public/locales). Add a new folder there for extending the languages or edit the languages there to add new translations. You can find an example of how to use the `i18next` in [./src/pages/App/App.jsx](./src/pages/App/App.jsx#L9).
+We use the [react-i18next](https://react.i18next.com) ([GitHub](https://github.com/i18next/react-i18next)) library for translations. The translation file for languages other than English is loaded dynamically upon need via the [i18next-http-backend](https://github.com/i18next/i18next-http-backend) library. The translation files are placed under [./public/locales](./public/locales). Add a new folder there for extending the languages or edit the languages there to add new translations. The [English translation](./src/en.json) file is pre-bundled with the app which is why it is placed under the `src/` directory.
+You can find an example of how to use the `i18next` in [./src/pages/App/App.jsx](./src/pages/App/App.jsx#L11).
 
 #### Storybook
 
