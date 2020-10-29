@@ -61,15 +61,29 @@ You can also run the build only for a specific (sub-)component by providing the 
 act -s BUILD_ARGS="--make" -s WORKING_DIRECTORY="./docs" -j build
 ```
 
+#### Check
+
+To run all relevant linting and code style checks for all components, execute:
+
+```bash
+act -s BUILD_ARGS="--check" -j build
+```
+
 #### Test
 
 Once all the project artifacts are build, you can execute this command in the project root folder to run the integration & unit tests and style & linting checks for all components:
 
 ```bash
-act -s BUILD_ARGS="--make --test" -j build
+act -s BUILD_ARGS="--test" -j build
 ```
 
-The `--make --test` steps are configured as default. If you call the job without `BUILD_ARGS` the build and test steps will be executed:
+It is also possible to combine multiple steps into one command:
+
+```bash
+act -s BUILD_ARGS="--check --make --test" -j build
+```
+
+The `--check --make --test` steps are configured as default. If you call the job without `BUILD_ARGS` the build and test steps will be executed:
 
 ```bash
 act -j build
