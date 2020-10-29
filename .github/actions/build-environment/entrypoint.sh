@@ -3,6 +3,11 @@
 # Stops script execution if a command has an error
 set -e
 
+# set default build args if not provided
+if [ -z "$INPUT_BUILD_ARGS" ]; then
+    INPUT_BUILD_ARGS="--make --test"
+fi
+
 BUILD_SECRETS=""
 
 if [ -n "$GITHUB_TOKEN" ]; then
@@ -26,11 +31,6 @@ if [ -n "$INPUT_WORKING_DIRECTORY" ]; then
     cd $INPUT_WORKING_DIRECTORY
 else
     cd $GITHUB_WORKSPACE
-fi
-
-# set default build args if not provided
-if [ -z "$INPUT_BUILD_ARGS" ]; then
-    INPUT_BUILD_ARGS="--make --test"
 fi
 
 if [ -n "$INPUT_PYPI_TOKEN" ]; then
