@@ -5,7 +5,7 @@ set -e
 
 # set default build args if not provided
 if [ -z "$INPUT_BUILD_ARGS" ]; then
-    INPUT_BUILD_ARGS="--make --test"
+    INPUT_BUILD_ARGS="--check --make --test"
 fi
 
 BUILD_SECRETS=""
