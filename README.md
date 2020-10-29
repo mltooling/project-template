@@ -82,7 +82,7 @@ _TODO: Add sourcerer [hall of fame](https://github.com/sourcerer-io/hall-of-fame
 
 - Pull requests are encouraged and always welcome. Read our [contribution guidelines](https://github.com/mltooling/project-template/tree/main/CONTRIBUTING.md) and check out [help-wanted](https://github.com/mltooling/project-template/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3A"help+wanted"+sort%3Areactions-%2B1-desc+) issues.
 - Submit Github issues for any [feature request and enhancement](https://github.com/mltooling/project-template/issues/new?assignees=&labels=feature&template=02_feature-request.md&title=), [bugs](https://github.com/mltooling/project-template/issues/new?assignees=&labels=bug&template=01_bug-report.md&title=), or [documentation](https://github.com/mltooling/project-template/issues/new?assignees=&labels=documentation&template=03_documentation.md&title=) problems.
-- By participating in this project, you agree to abide by its [Code of Conduct](https://github.com/mltooling/project-template/tree/main/CODE_OF_CONDUCT.md).
+- By participating in this project, you agree to abide by its [Code of Conduct](https://github.com/mltooling/project-template/blob/main/.github/CODE_OF_CONDUCT.md).
 - The [development section](#development) below contains information on how to build and test the project after you have implemented some changes.
 
 ## Development
@@ -95,7 +95,7 @@ To simplify the process of building this project from scratch, we provide build-
 python build.py --make --test --containerized
 ```
 
-Refer to our [contribution guides](./CONTRIBUTING.md#development-instructions) for more detailed information on our build scripts and development process.
+Refer to our [contribution guides](https://github.com/mltooling/project-template/blob/main/CONTRIBUTING.md#development-instructions) for more detailed information on our build scripts and development process.
 
 ---
 
