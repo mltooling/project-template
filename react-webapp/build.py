@@ -24,3 +24,4 @@ if args[build_utils.FLAG_MAKE]:
     completed_process = build_utils.run("yarn build")
     if completed_process.returncode > 0:
         build_utils.log("Building the webapp failed")
+        build_utils.exit_process(completed_process.returncode)
