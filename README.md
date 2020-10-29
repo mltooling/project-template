@@ -87,12 +87,12 @@ _TODO: Add sourcerer [hall of fame](https://github.com/sourcerer-io/hall-of-fame
 
 ## Development
 
-> _**Requirements**: Python and Docker are required to be installed on your machine to execute the build process._
+> _**Requirements**: [Docker](https://docs.docker.com/get-docker/) and [Act](https://github.com/nektos/act#installation) are required to be installed on your machine to execute the build process._
 
 To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, test, and release) within a containerized environment. To build and test your changes, execute the following command in the project root folder:
 
 ```bash
-python build.py --make --test --containerized
+act -j build
 ```
 
 Refer to our [contribution guides](https://github.com/mltooling/project-template/blob/main/CONTRIBUTING.md#development-instructions) for more detailed information on our build scripts and development process.
