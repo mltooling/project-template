@@ -17,35 +17,32 @@ ENV LC_ALL="en_US.UTF-8" \
     TZ="Europe/Berlin" \
     DEBIAN_FRONTEND="noninteractive"
 
-# Install Docker in Container
-
-# RUN apt-get update && \
-# apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common && \
-# curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
-# add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && \
-# apt-get update && \
-# apt-get -y install docker-ce
-
+# Install basics
 RUN \
     apt-get update && \
-    apt-get install -y \
+    apt-get -y upgrade && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
         apt-transport-https \
         ca-certificates \
         curl \
         gnupg2 \
-        software-properties-common && \
-    curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && \
-    apt-get update && \
-    apt-get install -y docker-ce
+        software-properties-common
 
-# RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-#     add-apt-repository \
-#     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-#     $(lsb_release -cs) \
-#     stable" && \
-#     apt-get update -y && \
-#     apt-get install -y docker-ce=5:19.03.13~3-0~ubuntu-focal
+# Install Docker in Container
+# RUN \ 
+#     curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
+#     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && \
+#     apt-get update && \
+#     apt-get install -y docker-ce
+
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable" && \
+    apt-get update -y && \
+    apt-get install -y docker-ce=5:19.03.13~3-0~ubuntu-focal
 
 # Install Python
 RUN \
@@ -53,9 +50,21 @@ RUN \
     ln -s /usr/bin/python3 /usr/bin/python && \
     ln -s /usr/bin/pip3 /usr/bin/pip
 
+### Install node & npm (12)
+# RUN \
+#     apt-get install -y gpg-agent dirmngr lsb-release
+
+RUN \ 
+    apt-get update && \
+    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+    apt-get install -y nodejs
+
 # Install Universal-Build
 RUN \
     pip install --upgrade git+https://github.com/ml-tooling/universal-build.git
+
+# Install Web development tools
+RUN npm install -g yarn
 
 
 COPY entrypoint.sh /entrypoint.sh
