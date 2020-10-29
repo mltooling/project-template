@@ -18,8 +18,6 @@ jobs:
         with:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
-      - name: Install JS Dependencies
-        run: cd react-webapp && sudo npm install -g
       - name: lint-code-base
         uses: github/super-linter@v3
         env:
