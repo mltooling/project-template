@@ -22,14 +22,15 @@ It uses Storybook (see [Section](#storybook)) for documenting components. For mo
 
 ### Code Style
 
-When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](#develop). If you don't have an IDE with installed plugins, you can install and run the commands locally (they are added in the [./package.json](./package.json)) like following:
+When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](#develop). We recommend to use plugins in your IDE to already keep an eye on the style while developing.
+After executing `yarn install` as they are defined in the [./package.json](./package.json), you can run style checking like following:
 
 - Formatting:
   - `yarn run prettier <path-to-file>`: this command formats the file and saves it.
-- Linting:
-  - `yarn run lint` runs all linting commands mentioned below in sequence.
-  - `yarn run lint:js`: this command just shows the problems in your JavaScript files (files ending with `.js`/`.jsx`), but does not fix them automatically.
-  - `yarn run lint:css`: this commands shows the problems in all your project's `.css` files, but does not fix them automatically.
+- Linting (shows the problems but does not fix them):
+  - `python build.py --check` runs all checks as defined in the [build.py](./build.py) or manually:
+  - `yarn run lint:js`: checks the JavaScript files (files ending with `.js`/`.jsx`).
+  - `yarn run lint:css`: checks the `.css` files.
 
 Sometimes, you have to do something that is not allowed by the linting rules. For example, property spreading in React makes sense sometimes. In this example, you can disable the linter for the specific line by adding `// eslint-disable-line react/jsx-props-no-spreading`. Instead of disabling a rule globally, this forces you to think about your decision instead of allowing slopiness by default.
 
