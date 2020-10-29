@@ -9,7 +9,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint-project:
+  run-component-checks:
+    name: run-component-checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: run-component-checks
+        uses: ./.github/actions/build-environment
+        with:
+          build_args: --check
+  run-superlinter:
     name: lint-project
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +44,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACTIONS_RUNNER_DEBUG: false
           LOG_LEVEL: verbose
-      #- name: lint-python
-      #  uses: wemake-services/wemake-python-styleguide@0.14.1
-      #  with:
-      #    path: './python-lib'
