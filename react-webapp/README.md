@@ -68,15 +68,15 @@ The project uses follwing structure:
 
 Inside of the `src/` folder, there should be following structure (inspired by this [blog post](https://www.devaradise.com/react-project-folder-structure)):
 
-- `components/`: Capsulated components appear here. Artifacts that are specific to a component should be packaged together, for example `components/dashboard/` should have all components and styles and images that are just relevant for the `dashboard` component.
-- `pages/`: Reflects the routes of the application and is composed of different components. Each component in this folder should have its own route.
+- `components/`: Capsulated components appear here. Artifacts that are specific to a component should be packaged together, for example `components/dashboard/` should have all components and styles and images that are just relevant for the `dashboard` component (domain-based structure).
+- `pages/`: Reflects the routes of the application and is composed of different components. Each component in this folder should have its own route. If a page has specific components that are only used within that page (especially those which are composed of more general components), you can add them in a sub-directory here instead of the `components/` directory.
 - `utils/`: Functionality that is generally relevant for your application and could be used in multiple places.
 - `app/`: Contains app essentials such as routes and the store in form of `store.js` [when using Redux](https://redux.js.org/tutorials/essentials/part-1-overview-concepts).
 - `services/`: Contains JavaScript functions and clients that manage API integrations.
 - `assets/`: Should contain style and images and other resources that are generally relevant for your application and not only for a specific component.
 - `stories/`: Contains general Storybook files such as introduction and assets that are not directly linked to a specific component. It should not contain the actual component stories.
 
-If files belong together, for example a component has a related `.stories.jsx` and `.test.jsx` file, put them into an extra folder.
+If files belong together, for example a component has a related `.stories.jsx` and `.test.jsx` file, put them into an extra folder. Also, when needed add an `index.js` file to a component directory to make it easier to import as shown [here](src/pages/App/index.js).
 
 Add Storybook files (see the [Storybook Section](#storybook)) next to the components they describe. Story files must follow the `<component-name>.stories.jsx` name pattern. For example, if you have a component `src/dashboard/Dashboard.jsx`, put the stories file under `src/dashboard/Dashboard.stories.jsx`.
 
