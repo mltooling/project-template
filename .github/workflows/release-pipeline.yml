@@ -28,7 +28,7 @@ jobs:
         uses: ./.github/actions/build-environment
         with:
           build_args: --release --force --version=${{ steps.get-latest-version.outputs.latest_version }}
-          pypi_password: ${{ secrets.PYPI_PASSWORD }}
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
           container_registry_url: ${{ secrets.CONTAINER_REGISTRY_URL }}
           container_registry_username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
           container_registry_password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}

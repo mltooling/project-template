@@ -8,7 +8,7 @@ inputs:
   working_directory:
     description: "Working directory from where the build command is run."
     required: false
-  pypi_password:
+  pypi_token:
     description: "Personal access token for PyPI account."
     required: false
   container_registry_url:
