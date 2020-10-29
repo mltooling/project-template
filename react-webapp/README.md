@@ -38,7 +38,7 @@ Sometimes, you have to do something that is not allowed by the linting rules. Fo
 
 #### Production Build
 
-Execute `yarn build` to build the app for production to the `build` folder.\
+Execute `python build.py --make` to build the app. Under the hood, it uses `yarn build` for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
