@@ -5,6 +5,12 @@ args = build_utils.get_sanitized_arguments()
 build_utils.log("Install essentials")
 build_utils.run("yarn install")
 
+if args[build_utils.FLAG_MAKE]:
+    build_utils.log("Build the webapp")
+    completed_process = build_utils.run("yarn build")
+    if completed_process.returncode > 0:
+        build_utils.log("Building the webapp failed")
+
 if args[build_utils.FLAG_CHECK]:
     build_utils.log("Run linters:")
     js_linting_completed_process = build_utils.run("yarn run lint:js")
