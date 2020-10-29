@@ -20,7 +20,7 @@ jobs:
         with:
           build_args: --check
   run-superlinter:
-    name: lint-project
+    name: run-superlinter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
