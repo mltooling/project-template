@@ -37,8 +37,8 @@ if [ -n "$INPUT_PYPI_TOKEN" ]; then
     BUILD_SECRETS="$BUILD_SECRETS --pypi-token=$INPUT_PYPI_TOKEN"
 fi
 
-if [ -n "$INPUT_PYPI_TEST_TOKEN" ]; then
-    BUILD_SECRETS="$BUILD_SECRETS --pypi-test-token=$INPUT_PYPI_TEST_TOKEN"
+if [ -n "$INPUT_PYPI_REPOSITORY" ]; then
+    BUILD_SECRETS="$BUILD_SECRETS --pypi-repository=$INPUT_PYPI_REPOSITORY"
 fi
 
 printenv

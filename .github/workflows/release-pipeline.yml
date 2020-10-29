@@ -33,7 +33,7 @@ jobs:
         with:
           build_args: --release --force --version=${{ steps.get-latest-version.outputs.latest_version }}
           pypi_token: ${{ secrets.PYPI_TOKEN }}
-          pypi_test_token: ${{ secrets.PYPI_TEST_TOKEN }}
+          pypi_repository: ${{ secrets.PYPI_REPOSITORY }}
           container_registry_url: ${{ secrets.CONTAINER_REGISTRY_URL }}
           container_registry_username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
           container_registry_password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
