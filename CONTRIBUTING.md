@@ -17,7 +17,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 3. [Code conventions](#code-conventions)
     - [Python conventions](#python-conventions)
     - [Java conventions](#java-conventions)
-    - [React conventions](#react-conventions)
+    - [JavaScript conventions](#react-conventions)
 4. [Code of conduct](#code-of-conduct)
 
 ## Issues and bug reports
@@ -275,14 +275,14 @@ We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more 
 mvn verify
 ```
 
-### React conventions
+### Web Development conventions
 
 - Code Style: [Airbnb Style Guide](https://github.com/airbnb/javascript)
 - Documentation Style: [JSDoc](https://jsdoc.app/about-getting-started.html)
 - Build Tool: [webpack](https://webpack.js.org/) (+ [babel](https://babeljs.io/))
 - Package Manager: [yarn](https://yarnpkg.com/)
 - Code Formatter: [prettier](https://github.com/prettier/prettier)
-- Linting: [eslint](https://github.com/eslint/eslint) (javascript) & [stylelint](https://github.com/stylelint/stylelint) (css)
+- Linting: [eslint](https://github.com/eslint/eslint) (JavaScript) & [stylelint](https://github.com/stylelint/stylelint) (CSS)
 - Testing: [jest](https://github.com/facebook/jest) + [react-testing-library](https://github.com/testing-library/react-testing-library)
 - Component Styling: [styled-components](https://github.com/styled-components/styled-components)
 - Minimum compatibility: Node 12
