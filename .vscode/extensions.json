@@ -20,6 +20,7 @@
     // Container Development
     "ms-azuretools.vscode-docker",
     "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "exiasr.hadolint",
     // Markdown
     "DavidAnson.vscode-markdownlint",
     "yzhang.markdown-all-in-one",
