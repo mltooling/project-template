@@ -17,7 +17,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
 3. [Code conventions](#code-conventions)
     - [Python conventions](#python-conventions)
     - [Java conventions](#java-conventions)
-    - [JavaScript conventions](#react-conventions)
+    - [Web development conventions](#web-development-conventions)
 4. [Code of conduct](#code-of-conduct)
 
 ## Issues and bug reports
@@ -155,17 +155,17 @@ Commit messages should be as standardized as possible within the repository. A f
 We use [black](https://github.com/ambv/black) for code formatting and [isort](https://github.com/PyCQA/isort) for import sorting. The following commands run `black` and `isort` on all Python files of the component (when executed in the component root):
 
 ```bash
-python -m isort --profile black .
-python -m black .
+python -m isort --profile black src
+python -m black src
 ```
 
 If you want to only check if the formatting and sorting is applied correctly to all files, execute:
 
 ```bash
 # formatting check:
-python -m black --check .
+python -m black --check src
 # import sorting check:
-python -m isort --profile black --check-only .
+python -m isort --profile black --check-only src
 ```
 
 You can also configure `black` and `isort` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you can add the following to your `settings.json` for formatting and auto-format your files on save:
@@ -197,9 +197,9 @@ We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https:/
 
 ```bash
 # type checks
-python -m mypy .
+python -m mypy src
 # linting
-python -m flake8 .
+python -m flake8 src
 ```
 
 You can also configure `flake8` and `mypy` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you can add the following to your `settings.json` for linting and type checking:
