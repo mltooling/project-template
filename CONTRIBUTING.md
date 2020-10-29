@@ -269,13 +269,16 @@ mvn verify
 - Package Manager: [yarn](https://yarnpkg.com/)
 - Code Formatter: [prettier](https://github.com/prettier/prettier)
 - Linting: [eslint](https://github.com/eslint/eslint) (javascript) & [stylelint](https://github.com/stylelint/stylelint) (css)
-- Testing: [jest](https://github.com/facebook/jest)
+- Testing: [jest](https://github.com/facebook/jest) + [react-testing-library](https://github.com/testing-library/react-testing-library)
+- Component Styling: [styled-components](https://github.com/styled-components/styled-components)
 - Minimum compatibility: Node 12
 
 #### Code style & naming
 
 - **Code style** should follow [Airbnb Style Guide](https://github.com/airbnb/javascript).
 - **Documentation style** should follow the [JSDoc](https://jsdoc.app/about-getting-started.html) convention, though overall we advocate self-explanatory code over comments.
+- For additional **component documentation**, we use [Storybook](https://storybook.js.org/docs/react/get-started/introduction). Add Storybook files next to the components they describe. Story files must follow the `<component-name>.stories.jsx` name pattern. The Storybook server can be started via `yarn run storybook`.
+- For **component styling** we use the [styled-components](https://github.com/styled-components/styled-components) library. The style of a component should be bundled with the component and, usually, lies in the same file.
 - **Custom Guidelines:**
   - Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible.
   - Functions should in general be written in the [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) notation. Arrow functions should be defined outside of the `render` function to avoid [any performance problems](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render).
@@ -285,7 +288,7 @@ mvn verify
 We use [prettier](https://prettier.io) for code formatting. The following command run `prettier` on a JavaScript file:
 
 ```bash
-./node_modules/.bin/prettier --config .prettierrc --write <path/to/file>
+./node_modules/.bin/prettier --config .prettierrc --write path/to/file
 ```
 
 Our default configuration for prettier can be found in [.prettierrc](.github/linting/.prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript).
@@ -307,10 +310,24 @@ The following commands run `eslint` and `stylelint` on all files to show linting
 ./node_modules/.bin/stylelint "**/*.css"
 ```
 
+Sometimes, you have to do something that is not allowed by the linting rules. For example, property spreading in React makes sense sometimes. In this example, you can disable the linter for the specific line by adding `// eslint-disable-line react/jsx-props-no-spreading`.
+
 #### Adding & running tests
 
-_TBD_
+This project uses [Jest](https://create-react-app.dev/docs/running-tests) and [react-testing-library](https://github.com/testing-library/react-testing-library) for unit and integration testing. To run the tests, execute:
+
+```bash
+yarn test
+# See test coverage
+yarn test -- --coverage
+```
+
+Add at least a smoke test to every new component to make sure that it renders, as recommended [here](https://create-react-app.dev/docs/running-tests#testing-components). It is also [recommended](https://jestjs.io/docs/en/api.html#testname-fn-timeout) to use `test()` instead of it's alias `it()`. Add test files next to the code they are testing. Test files must follow the `<component-name>.test.jsx` name pattern.
+
+#### Local Development Build & Run
+
+Execute `yarn start` in the component root to run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits. You will also see any lint errors in the console.
 
 ## Code of Conduct
 
-All members of the project community must abide by the [Contributor Covenant, version 2.0](CODE_OF_CONDUCT.md). Only by respecting each other we can develop a productive, collaborative community. Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting a project maintainer.
+All members of the project community must abide by the [Contributor Covenant, version 2.0](./.github/CODE_OF_CONDUCT.md). Only by respecting each other we can develop a productive, collaborative community. Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting a project maintainer.
