@@ -25,8 +25,8 @@ jobs:
         env:
           # only validate new or edited files
           VALIDATE_ALL_CODEBASE: false
-          JAVASCRIPT_ES_CONFIG_FILE: react-webapp/.eslintrc.json
-          CSS_FILE_NAME: react-webapp/.stylelintrc.json
+          JAVASCRIPT_ES_CONFIG_FILE: /github/workspace/react-webapp/.eslintrc.json
+          CSS_FILE_NAME: /github/workspace/react-webapp/.stylelintrc.json
           DEFAULT_BRANCH: main
           FILTER_REGEX_EXCLUDE: (.*\.vscode/.*)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
