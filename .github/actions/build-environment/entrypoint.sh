@@ -43,4 +43,4 @@ fi
 
 printenv
 pwd
-echo "python -u build.py $INPUT_BUILD_ARGS $BUILD_SECRETS"
+python -u build.py $INPUT_BUILD_ARGS $BUILD_SECRETS
