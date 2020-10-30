@@ -8,7 +8,7 @@ The Sections below explain the used style guides and configurations for this pro
 
 ## Develop
 
-This project uses [React](https://reactjs.org) as the main framework. Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible. Functions should in general be written in the [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) notation. Arrow functions should be defined outside of the `render` function to avoid [any performance problems](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render). For component styling this project uses the [styled-components library](https://github.com/styled-components/styled-components) (see [Section Component Styling](#component-styling)).
+This project uses [React](https://reactjs.org) as the main framework. Components should be written as [React Hooks](https://reactjs.org/docs/hooks-intro.html) instead of the old class-style wherever possible. See [Section Components Guide](#components-guide) for some more guidelines. For component styling this project uses the [styled-components library](https://github.com/styled-components/styled-components) (see [Section Component Styling](#component-styling)).
 
 For code styling, [eslint](https://eslint.org) is used for linting and [prettier](https://prettier.io) is used for formatting (see [this page](https://prettier.io/docs/en/comparison.html) for learning about linting vs. formatting). The linting rules are listed in [.eslintrc.js](./eslintrc.js). The configuration for prettier can be found in [.prettierrc](./prettierrc). The configurations adhere to [Airbnb's JavaScript style guide](https://github.com/airbnb/javascript). For CSS styling, [stylelint](https://stylelint.io) is used for which the configuration can be found in the [.stylelintrc.json](./.stylelintrc.json) file.
 
@@ -86,6 +86,20 @@ Add test files next to the code they are testing (see the [Testing Section](#tes
 #### Component Styling
 
 You can find an example of how [styled-components](https://github.com/styled-components/styled-components) can be used [here](./src/components/Button.jsx#L5). With the stated [motivation](https://styled-components.com/docs/basics#motivation) of the library, the style of a component should be bundled with the component and, usually, lies in the same file.
+
+#### Components Guide
+
+##### Arrow Functions
+
+Inside of functional components, we prefer [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) `const foo = () => {}` over function declarations `function foo(){}`.
+
+##### Memoized Functions
+
+In class components, arrow functions should be defined outside of the `render` function to avoid [any performance problems](https://reactjs.org/docs/faq-functions.html#arrow-function-in-render). For functional components, define non-component specific functions outside of the component function or use `useMemo`/`useCallback` functions to avoid re-creation of functions (see [this example](https://stackoverflow.com/a/56477027/5379273) and the [React documentation](https://reactjs.org/docs/hooks-reference.html#usememo)).
+
+##### Memoized Components
+
+When your component uses components that render often and always with the same props, consider using a memoized version of those components via `React.memo` to avoid unnecessary re-renders (check out [this blogpost](https://dmitripavlutin.com/use-react-memo-wisely/)).
 
 #### Internationalization
 
