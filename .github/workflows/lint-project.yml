@@ -33,14 +33,26 @@ jobs:
         env:
           # only validate new or edited files
           VALIDATE_ALL_CODEBASE: false
-          # Disable CSS validation because we use styelint with custom packages
-          VALIDATE_CSS: false
-          # Disable JavaScript validation because we use eslint with custom packages
-          VALIDATE_JAVASCRIPT_ES: false
-          VALIDATE_JAVASCRIPT_STANDARD: false
-          VALIDATE_JSX: false
+          VALIDATE_DOCKERFILE: true
+          VALIDATE_DOCKERFILE_HADOLINT: true
+          VALIDATE_EDITORCONFIG: true
+          VALIDATE_HTML: true
+          VALIDATE_JAVA: true
+          VALIDATE_JSON: true
+          VALIDATE_KUBERNETES_KUBEVAL: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_OPENAPI: true
+          VALIDATE_PROTOBUF: true
+          VALIDATE_PYTHON: true
+          VALIDATE_PYTHON_BLACK: true
+          VALIDATE_PYTHON_FLAKE8: true
+          VALIDATE_PYTHON_ISORT: true
+          VALIDATE_PYTHON_PYLINT: true
+          VALIDATE_SHELL_SHFMT: true
+          VALIDATE_XML: true
+          VALIDATE_SQL: true
+          VALIDATE_YAML: true
           DEFAULT_BRANCH: main
           FILTER_REGEX_EXCLUDE: (.*\.vscode/.*)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ACTIONS_RUNNER_DEBUG: false
-          LOG_LEVEL: verbose
