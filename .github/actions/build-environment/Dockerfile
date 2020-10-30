@@ -1,15 +1,20 @@
 FROM ubuntu:20.04
 
+# Fix for pipe operations: https://github.com/hadolint/hadolint/wiki/DL4006
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Generate and Set locals
 # https://stackoverflow.com/questions/28405902/how-to-set-the-locale-inside-a-debian-ubuntu-docker-container#38553499
 RUN \
     apt-get update && \
-    apt-get install locales --yes && \
-    # install locales-all?
+    apt-get install -y --no-install-recommends locales && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
-    update-locale LANG=en_US.UTF-8
+    update-locale LANG=en_US.UTF-8 && \
+    # Clean up
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL="en_US.UTF-8" \
     LANG="en_US.UTF-8" \
@@ -18,8 +23,10 @@ ENV LC_ALL="en_US.UTF-8" \
     DEBIAN_FRONTEND="noninteractive"
 
 # Install basics
+# hadolint ignore=DL3005
 RUN \
-    apt-get update && \
+    apt-get update --fix-missing && \
+    apt-get install -y --no-install-recommends apt-utils && \
     apt-get -y upgrade && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -27,45 +34,60 @@ RUN \
         ca-certificates \
         curl \
         gnupg2 \
-        software-properties-common
+        git \
+        software-properties-common && \
+    # Clean up
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Docker in Container
-# RUN \ 
-#     curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
-#     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" && \
-#     apt-get update && \
-#     apt-get install -y docker-ce
-
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+RUN \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) \
-    stable" && \
+        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) \
+        stable" && \
     apt-get update -y && \
-    apt-get install -y docker-ce=5:19.03.13~3-0~ubuntu-focal
+    apt-get install -y --no-install-recommends docker-ce=5:19.03.13~3-0~ubuntu-focal && \
+    # Clean up
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Python
 RUN \
-    apt-get update && apt-get install -y python3 python3-pip && \
+    apt-get update && apt-get install -y --no-install-recommends \
+        python3 \
+        python3-pip && \
     ln -s /usr/bin/python3 /usr/bin/python && \
-    ln -s /usr/bin/pip3 /usr/bin/pip
-
-### Install node & npm (12)
-# RUN \
-#     apt-get install -y gpg-agent dirmngr lsb-release
-
-RUN \ 
-    apt-get update && \
-    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
-    apt-get install -y nodejs
+    ln -s /usr/bin/pip3 /usr/bin/pip && \
+    pip install \
+        setuptools==50.* \
+        flake8==3.* \
+        pytest==6.* \
+        twine==3.* \
+        wheel==0.* \
+        mypy==0.* \
+        black==20.8b1 \
+        isort==5.* && \
+    # Clean up
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+#coverage tox pytest-runner
 
 # Install Universal-Build
+# hadolint ignore=DL3013
 RUN \
     pip install --upgrade git+https://github.com/ml-tooling/universal-build.git
 
-# Install Web development tools
-RUN npm install -g yarn
-
+### Install web development tools
+RUN \
+    apt-get update && \
+    curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
+    apt-get install -y --no-install-recommends nodejs && \
+    npm install -g yarn@1 && \
+    # Clean up
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /entrypoint.sh
 

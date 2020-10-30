@@ -4,9 +4,9 @@ from universal_build import build_utils
 
 
 def main(args: Dict[str, Union[bool, str]]):
-    build_utils.build("docs", args)
+    # build_utils.build("docs", args)
     build_utils.build("react-webapp", args)
-    build_utils.build("java-service", args)
+    # build_utils.build("java-service", args)
     build_utils.build("python-lib", args)
 
 
