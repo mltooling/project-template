@@ -41,14 +41,15 @@ def main(args: Dict[str, Union[bool, str]]):
 
 def _check(args: Dict[str, Union[bool, str]]):
     """Run linting and style checks via black, isort, mypy and flake8."""
+    build_utils.run("pip install -e .[dev]", exit_on_error=True)
+    # Run linters and checks
     build_utils.run("black --check src", exit_on_error=True)
     build_utils.run("black --check tests", exit_on_error=True)
     build_utils.run("isort --profile black --check-only src", exit_on_error=True)
     build_utils.run("isort --profile black --check-only tests", exit_on_error=True)
     build_utils.run("mypy src", exit_on_error=True)
-    build_utils.run("mypy tests", exit_on_error=True)
-    build_utils.run("flake8 src", exit_on_error=True)
-    build_utils.run("flake8 tests", exit_on_error=True)
+    build_utils.run("flake8 --show-source --statistics src", exit_on_error=True)
+    build_utils.run("flake8 --show-source --statistics tests", exit_on_error=True)
     build_utils.run("pydocstyle src", exit_on_error=True)
 
 
@@ -74,9 +75,12 @@ def _make(args: Dict[str, Union[bool, str]]):
 def _test(args: Dict[str, Union[bool, str]]):
     """Run all tests."""
     # Install library
-    build_utils.run("pip install -e .", exit_on_error=True)
-    # Execute all tests
-    build_utils.run("pytest -x tests", exit_on_error=True)
+    build_utils.run("pip install -e .[dev]", exit_on_error=True)
+    # Execute tests with coverage check
+    build_utils.run(
+        f"pytest --cov={MAIN_PACKAGE} --cov-report=xml --cov-report term --cov-report=html tests",
+        exit_on_error=True,
+    )
 
 
 def _release(args: Dict[str, Union[bool, str]]):
@@ -90,14 +94,17 @@ def _release(args: Dict[str, Union[bool, str]]):
         build_utils.log("PyPI token is required for release (--pypi-token=<TOKEN>)")
         build_utils.exit_process(1)
 
-    if "pypi_repository" in args:
+    if "pypi_repository" in args and args["pypi_repository"]:
         pypi_repository_args = '--repository-url "' + str(args["pypi_repository"]) + '"'
 
     # Publish on pypi
     build_utils.run(
         f'twine upload --non-interactive -u "{pypi_user}" -p "{pypi_token}" {pypi_repository_args} dist/*',
-        exit_on_error=False,
+        exit_on_error=True,
     )
+
+    # Publish coverage report: if private repo set CODECOV_TOKEN="token" or use -t
+    build_utils.run("curl -s https://codecov.io/bash | bash -s", exit_on_error=False)
 
 
 if __name__ == "__main__":
