@@ -67,8 +67,9 @@ RUN \
         twine==3.* \
         wheel==0.* \
         mypy==0.* \
+        pytest-cov==2.* \
         black==20.8b1 \
-        pydocstyle==5.1.* \
+        pydocstyle==5.* \
         isort==5.* && \
     # Clean up
     apt-get clean && \
