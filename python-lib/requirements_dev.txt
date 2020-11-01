@@ -4,7 +4,7 @@ twine
 flake8
 pytest
 mypy
-coverage
+pytest-cov
 black
 pydocstyle
 isort

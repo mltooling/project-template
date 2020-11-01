@@ -23,10 +23,10 @@ VERSION = None  # Only set version if you like to overwrite the version in about
 # ------------------------------------------------
 # Except maybe the trove classifiers!
 
-here = os.path.abspath(os.path.dirname(__file__))
+PWD = os.path.abspath(os.path.dirname(__file__))
 
 
-def load_requirements(path_dir=here, file_name="requirements.txt", comment_char="#"):
+def load_requirements(path_dir=PWD, file_name="requirements.txt", comment_char="#"):
     """Read requirements file and return packages and git repos separately."""
     requirements = []
     dependency_links = []
@@ -54,13 +54,13 @@ if dependency_links:
 dev_requirements, _ = load_requirements(file_name="requirements_dev.txt")
 
 # Import the README and use it as the long-description.
-with open(os.path.join(here, "README.md"), encoding="utf-8") as f:
+with open(os.path.join(PWD, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 # Load the package's about.py module as a dictionary.
 about = {}  # type: dict
 if not VERSION:
-    with open(os.path.join(here, os.path.join("src", MAIN_PACKAGE), "about.py")) as f:  # type: ignore
+    with open(os.path.join(PWD, os.path.join("src", MAIN_PACKAGE), "about.py")) as f:  # type: ignore
         # todo: extract version via regex? re.findall("__version__ = '([\d.\w]+)'", f.read())[0]
         exec(f.read(), about)
         VERSION = about["__version__"]
