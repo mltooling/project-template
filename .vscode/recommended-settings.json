@@ -45,6 +45,8 @@
   "python.linting.flake8Args": ["--ignore=E203,E501,W503"],
   "python.autoComplete.addBrackets": true,
   "python.formatting.provider": "black",
+  "python.linting.pydocstyleEnabled": true,
+  "python.linting.pydocstyleArgs": ["--convention=google"],
   // Java Settings
   "java.format.enabled": true,
   "java.saveActions.organizeImports": true,

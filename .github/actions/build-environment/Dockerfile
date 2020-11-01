@@ -68,6 +68,7 @@ RUN \
         wheel==0.* \
         mypy==0.* \
         black==20.8b1 \
+        pydocstyle==5.1.* \
         isort==5.* && \
     # Clean up
     apt-get clean && \
