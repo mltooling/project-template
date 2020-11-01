@@ -133,7 +133,7 @@ Commit messages should be as standardized as possible within the repository. A f
 ### Python conventions
 
 - Code Style: [PEP8](https://www.python.org/dev/peps/pep-0008/)
-- Documentation Style: [Google Style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
+- Documentation Style: [Google Style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) (checked by [pydocstyle](https://github.com/PyCQA/pydocstyle))
 - Naming Conventions: [naming-convention-guides](https://github.com/naming-convention/naming-convention-guides/tree/master/python#python-naming-convention)
 - Build Tool: [setuptool](https://github.com/pypa/setuptools)
 - Code Formatter: [black](https://github.com/psf/black)
@@ -193,16 +193,18 @@ You can also configure `black` and `isort` inside your code editor. For example,
 
 #### Code linting
 
-We use [flake8](https://github.com/PyCQA/flake8) for linting, and [mypy](https://github.com/python/mypy) for type checking. You can find our flake8 configuration inside the `setup.cfg` or [here](.github/linters/.flake8). The following commands run `flake8` and `mypy` on all python files of the compontent (when executed in the compontent root):
+We use [flake8](https://github.com/PyCQA/flake8) for linting, [mypy](https://github.com/python/mypy) for type checking, and [pydocstyle](https://github.com/PyCQA/pydocstyle) for docstring style checks. You can find our flake8 configuration inside the `setup.cfg` or [here](.github/linters/.flake8). The following commands run `flake8`, `mypy` and `pydocstyle` on all python files of the compontent (when executed in the compontent root):
 
 ```bash
 # type checks
 python -m mypy src
 # linting
 python -m flake8 src
+# docstring checks
+python -m pydocstyle src
 ```
 
-You can also configure `flake8` and `mypy` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you can add the following to your `settings.json` for linting and type checking:
+You can also configure `flake8`, `mypy`, and `pydocstyle` inside your code editor. For example, if you're using [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), you can add the following to your `settings.json` for linting and type checking:
 
 ```json
 {
@@ -210,6 +212,8 @@ You can also configure `flake8` and `mypy` inside your code editor. For example,
     "python.linting.lintOnSave": true,
     "python.linting.pylintEnabled": false,
     "python.linting.mypyEnabled": true,
+    "python.linting.pydocstyleEnabled": true,
+    "python.linting.pydocstyleArgs": ["--convention=google"],
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
         "--ignore=E203,E501,W503"

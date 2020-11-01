@@ -15,16 +15,13 @@ EMAIL = "team@mltooling.org"
 AUTHOR = "ML Tooling Team"
 LICENSE = "MIT"
 REQUIRES_PYTHON = ">=3.6"
-VERSION = (
-    None  # Only set version if you like to overwrite the version in __version__.py
-)
+VERSION = None  # Only set version if you like to overwrite the version in about.py
 
 # Please define the requirements within the requirements.txt
 
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
-# Except, perhaps the License and Trove Classifiers!
-# If you do change the License, remember to change the Trove Classifier for that!
+# Except maybe the trove classifiers!
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -86,8 +83,9 @@ setup(
     zip_safe=False,
     install_requires=requirements,
     extras_require={
-        "dev": [dev_requirements],  # can be installed via pip install package[dev]
-        "test": [dev_requirements]
+        # extras can be installed via: pip install package[dev]
+        "dev": [dev_requirements],
+        "test": [dev_requirements],
     },
     include_package_data=True,
     package_data={
