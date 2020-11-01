@@ -76,9 +76,15 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# vim temporary files
+*~
+.*.sw?
+
 # Other Artifacts
 hs_err_pid*
 *.log
 *.swp
+*.swo
 temp/*
 .DS_Store
+
