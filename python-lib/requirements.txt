@@ -1,4 +1,2 @@
-# Our libraries
-# Third party dependencies
-setuptools
-# Optional dependencies
+typer
+fastapi
