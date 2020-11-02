@@ -41,6 +41,4 @@ if [ -n "$INPUT_PYPI_REPOSITORY" ]; then
     BUILD_SECRETS="$BUILD_SECRETS --pypi-repository=$INPUT_PYPI_REPOSITORY"
 fi
 
-printenv
-pwd
 python -u build.py $INPUT_BUILD_ARGS $BUILD_SECRETS

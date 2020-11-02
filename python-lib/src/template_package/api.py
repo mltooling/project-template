@@ -27,6 +27,7 @@ def update_item(item_id: int, item: Item) -> dict:
 # Patch Fastapi to allow relative path resolution.
 patch_fastapi(app)
 
+
 if __name__ == "__main__":
     import uvicorn
 
