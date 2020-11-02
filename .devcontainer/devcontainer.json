@@ -53,7 +53,7 @@
 		 "redhat.java",
 		 "SonarSource.sonarlint-vscode",
 		 "shengchen.vscode-checkstyle"
-	],
+	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
   // :3000 for the React Webapp started via `yarn run`
