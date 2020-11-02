@@ -303,7 +303,7 @@ mvn verify
 
 #### Code formatting
 
-We use [prettier](https://prettier.io) for code formatting. The following command run `prettier` on a JavaScript file:
+We use [prettier](https://prettier.io) for code formatting. The following command runs `prettier` on a JavaScript file:
 
 ```bash
 ./node_modules/.bin/prettier --config .prettierrc --write path/to/file
