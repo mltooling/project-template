@@ -60,7 +60,7 @@ _Use this section for advertising the most important features and advantages of 
 
 _Either put the documentation here or use a deployed documentation site via mkdocs and link to the documentation._
 
-Please refer to [our documentatation](#TODO) for information about deployment or usage.
+Please refer to [our documentation](#TODO) for information about deployment or usage.
 
 ## FAQ
 
