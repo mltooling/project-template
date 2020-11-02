@@ -44,8 +44,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "container": "run(){ docker build -t project-template-dev ../.github/actions/build-environment && echo 'Starting the container. That can take a moment...' && docker run -it --rm -p 3000:3000 -v $(pwd):/workspace:delegated --entrypoint \"/bin/bash\" project-template-dev -c \"cd workspace/ && yarn $1\"; }; run",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test a --watchAll=false",
+    "test-interactive": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "yarn run lint:js ; yarn run lint:css",
     "lint:js": "eslint --ext js,jsx src/",

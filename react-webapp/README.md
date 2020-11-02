@@ -20,6 +20,8 @@ The used package manager for installing packages is [yarn](https://classic.yarnp
 
 It uses Storybook (see [Section](#storybook)) for documenting components. For more information about testing, check [this Section](#testing).
 
+> All `yarn` commands in this documentation can be executed via `yarn container` to run it inside of the development container instead of using the host. Hereby, the current directory is mounted into the container. See the `yarn container` command in the [package.json](./package.json).
+
 ### Code Style
 
 When contributing code, please try to make the code following the project's codestyle setup as described in the [Development summary section](#develop). We recommend to use plugins in your IDE to already keep an eye on the style while developing.
