@@ -119,7 +119,7 @@ setup(
         "Source": URL,
     },
     entry_points={
-        # 'console_scripts': ['cli-command=my_package.cli_handler:cli'],
+        "console_scripts": [f"{NAME}={MAIN_PACKAGE}.cli:app"],
     },
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',
