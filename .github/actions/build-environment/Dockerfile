@@ -31,12 +31,17 @@ RUN apt-get update --fix-missing \
         apt-transport-https \
         ca-certificates \
         curl \
+        wget \
         gnupg2 \
         git \
         software-properties-common \
     # Clean up
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Add tini
+RUN wget --quiet https://github.com/krallin/tini/releases/download/v0.19.0/tini -O /tini && \
+    chmod +x /tini
 
 # Install Docker in Container
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
@@ -59,10 +64,10 @@ RUN apt-get update \
     && ln -s /usr/bin/pip3 /usr/bin/pip \
     && pip install \
         setuptools==50.* \
+        wheel==0.* \
         flake8==3.* \
         pytest==6.* \
         twine==3.* \
-        wheel==0.* \
         mypy==0.* \
         pytest-cov==2.* \
         black==20.8b1 \
@@ -71,10 +76,6 @@ RUN apt-get update \
     # Clean up
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-# Install Universal-Build
-# hadolint ignore=DL3013
-RUN pip install git+https://github.com/ml-tooling/universal-build.git
 
 ### Install web development tools
 RUN apt-get update \
@@ -89,14 +90,18 @@ RUN apt-get update \
 RUN pip install \
         mkdocs==1.* \
         mkdocs-material==6.* \
-        pygments==2.* \
         pymdown-extensions==8.* \
+        pygments==2.* \
         markdown-include==0.6.* \
         mkdocs-markdownextradata-plugin==0.1.* \
     && npm install -g markdownlint@^0.21.1 markdownlint-cli@^0.24.0
+
+# Install Universal-Build
+# hadolint ignore=DL3013
+RUN pip install git+https://github.com/ml-tooling/universal-build.git
 
 COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-ENTRYPOINT [ "/entrypoint.sh"]
+ENTRYPOINT ["/tini", "-g", "--", "/entrypoint.sh"]
