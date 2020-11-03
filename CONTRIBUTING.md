@@ -13,7 +13,7 @@ Everyone is welcome to contribute, and we value everybody's contribution. Code i
     - [Commit messages guidelines](#commit-messages-guidelines)
     - [Opening a pull request](#opening-a-pull-request)
     - [Review & merging of a pull request](#review--merging-of-a-pull-request)
-    - [Git Workflow & Versioning](#git-workflow--versioning)
+    - [Git workflow & versioning](#git-workflow--versioning)
 3. [Code conventions](#code-conventions)
     - [Python conventions](#python-conventions)
     - [Java conventions](#java-conventions)
@@ -47,7 +47,7 @@ To simplify the process of building this project from scratch, we provide build 
 
 - [Act](https://github.com/nektos/act#installation), [Docker](https://docs.docker.com/get-docker/)
 
-#### Build
+#### Build components
 
 Execute this command in the project root folder to compile, assemble, and package all project components:
 
@@ -61,7 +61,7 @@ You can also run the build only for a specific (sub-)component by providing the 
 act -s BUILD_ARGS="--make" -s WORKING_DIRECTORY="./docs" -j build
 ```
 
-#### Check
+#### Run linting & style checks
 
 To run all relevant linting and code style checks for all components, execute:
 
@@ -69,9 +69,9 @@ To run all relevant linting and code style checks for all components, execute:
 act -s BUILD_ARGS="--check" -j build
 ```
 
-#### Test
+#### Run integration & unit tests
 
-Once all the project artifacts are build, you can execute this command in the project root folder to run the integration & unit tests and style & linting checks for all components:
+Once all the project artifacts are build, you can execute this command in the project root folder to run the integration & unit tests for all components:
 
 ```bash
 act -s BUILD_ARGS="--test" -j build
@@ -89,7 +89,7 @@ The `--check --make --test` steps are configured as default. If you call the job
 act -j build
 ```
 
-#### Release
+#### Release a new version
 
 To release a new version and publish all relevant artifacts to respective registries (e.g. Docker image to DockerHub), you need to first create a git version tag based on [Semantic Versioning](https://semver.org/) standard and, subsequently, run the release job:
 
@@ -122,7 +122,7 @@ Commit messages should be as standardized as possible within the repository. A f
 3. Once the pull request is approved by at least 1 reviewer, the pull request can be merged. `Squash & merge` is the preferred merging strategy.
 4. In case a new (feature) branch was created in the main repository, please delete this branch after a successful merge.
 
-### Git Workflow & Versioning
+### Git workflow & versioning
 
 - We use [GitLab Flow](https://docs.gitlab.com/ee/university/training/gitlab_flow.html#release-branch) as our branching workflow.
 - Feature branching: Use (short-lived) feature branches. Naming schema:  `feature/<DESCRIPTION>`, if related to one specific issue use suffix: `feature/<DESCRIPTION>/<ISSUE-NUMBER>`.
@@ -279,7 +279,7 @@ We use the [JUnit 5](https://junit.org/junit5/) framework for testing. For more 
 mvn verify
 ```
 
-### Web Development conventions
+### Web development conventions
 
 - Code Style: [Airbnb Style Guide](https://github.com/airbnb/javascript)
 - Documentation Style: [JSDoc](https://jsdoc.app/about-getting-started.html)
@@ -342,7 +342,7 @@ yarn test -- --coverage
 
 Add at least a smoke test to every new component to make sure that it renders, as recommended [here](https://create-react-app.dev/docs/running-tests#testing-components). It is also [recommended](https://jestjs.io/docs/en/api.html#testname-fn-timeout) to use `test()` instead of it's alias `it()`. Add test files next to the code they are testing. Test files must follow the `<component-name>.test.jsx` name pattern.
 
-#### Local Development Build & Run
+#### Local development build & run
 
 Execute `yarn start` in the component root to run the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits. You will also see any lint errors in the console.
 
