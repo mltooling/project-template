@@ -5,7 +5,7 @@ TBD
 <div class="termy">
 
 ```console
-$ pip install pydoc2md
+$ pip install mkdocs
 
 ---> 100%
 ```

@@ -12,14 +12,14 @@ Clone repository and make changes in the markdown.
 
 ### Test Updates Locally
 
-```
-python run.py
+```bash
+todo
 ```
 
 ### Deploy Updates to Github Pages
 
-```
-python build.py --deploy
+```bash
+todo
 ```
 
 Please, do not forget to push your changes via git as well.

@@ -10,19 +10,19 @@ repo_url: https://github.com/mltooling/project-template
 
 # Theme
 theme:
-  name: 'material'
-  custom_dir: 'custom_theme'
+  name: "material"
+  custom_dir: "custom_theme"
   #palette:
   #  scheme: preference
   #  primary: teal
   #  accent: amber
-  language: 'en'
+  language: "en"
   # logo: 'images/favicon.ico'
   # favicon: 'images/favicon.ico'
 
 # google_analytics:
 
-# Extensions: 
+# Extensions:
 markdown_extensions:
   - admonition
   - footnotes
@@ -52,8 +52,8 @@ markdown_extensions:
   - pymdownx.tabbed
 
 plugins:
-- search:
-    lang: en  
+  - search:
+      lang: en
 #- markdownextradata:
 #    data: data
 
@@ -61,22 +61,21 @@ plugins:
 nav:
   - About Project Template: index.md
   - Getting Started: getting-started.md
-  - FAQ: faq
+  - FAQ: faq.md
 
 # Options
 extra:
-  logo: 'images/logo.svg'
+  # logo: "images/logo.svg"
   feature:
     tabs: false
   palette:
     primary: indigo
     accent: indigo
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
+    text: "Roboto"
+    code: "Roboto Mono"
   social:
-    - type: github-alt
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/mltooling/project-template
-
 #extra_css: [css/custom.css]
 #extra_javascript:

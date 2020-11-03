@@ -71,11 +71,10 @@ RUN apt-get update \
     # Clean up
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-#coverage tox pytest-runner
 
 # Install Universal-Build
 # hadolint ignore=DL3013
-RUN pip install --upgrade git+https://github.com/ml-tooling/universal-build.git
+RUN pip install git+https://github.com/ml-tooling/universal-build.git
 
 ### Install web development tools
 RUN apt-get update \
@@ -85,6 +84,16 @@ RUN apt-get update \
     # Clean up
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Install documentation dependencies
+RUN pip install \
+        mkdocs==1.* \
+        mkdocs-material==6.* \
+        pygments==2.* \
+        pymdown-extensions==8.* \
+        markdown-include==0.6.* \
+        mkdocs-markdownextradata-plugin==0.1.* \
+    && npm install -g markdownlint@^0.21.1 markdownlint-cli@^0.24.0
 
 COPY entrypoint.sh /entrypoint.sh
 
