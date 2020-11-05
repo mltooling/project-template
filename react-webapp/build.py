@@ -17,4 +17,4 @@ if args[build_utils.FLAG_MAKE]:
 
 if args[build_utils.FLAG_TEST]:
     build_utils.log("Test the webapp:")
-    build_utils.run("yarn test a --watchAll=false", exit_on_error=True)
+    build_utils.run("yarn test", exit_on_error=True)
