@@ -34,6 +34,7 @@ RUN apt-get update --fix-missing \
         wget \
         gnupg2 \
         git \
+        jq \
         software-properties-common \
     # Clean up
     && apt-get clean \
