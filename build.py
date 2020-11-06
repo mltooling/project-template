@@ -15,7 +15,7 @@ if __name__ == "__main__":
     # Check for valid arguments
     args = build_utils.get_sanitized_arguments()
 
-    if args[build_utils.FLAG_RELEASE]:
+    if args[build_utils.FLAG_RELEASE] and not args[build_utils.FLAG_FORCE]:
         # Run main without release to see whether everthing can be built and all tests run through
         main({**args, "release": False})
         # Run main again with only executing release with force flag
