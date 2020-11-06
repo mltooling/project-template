@@ -4,13 +4,13 @@ author: "ML Tooling <team@mltooling.org>"
 
 inputs:
   current_commit_only:
-    description: "Only retrieve version for current commit."
+    description: "Only retrieve version for current commit"
     default: "false"
     required: false
 
 outputs:
   latest_version:
-    description: The latest version based on the .
+    description: "The latest version based on git tags"
 
 runs:
   using: "docker"
