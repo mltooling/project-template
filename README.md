@@ -47,7 +47,7 @@ This project is maintained by [Benjamin Räthlein](https://twitter.com/raethlein
 | Type                     | Channel                                              |
 | ------------------------ | ------------------------------------------------------ |
 | 🚨 **Bug Reports**       | <a href="https://github.com/mltooling/project-template/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+label%3Abug+sort%3Areactions-%2B1-desc+" title="Open Bug Report"><img src="https://img.shields.io/github/issues/mltooling/project-template/bug.svg?label=bug"></a>                                 |
-| ✨ **Feature Requests**  | <a href="https://github.com/mltooling/project-template/issues?q=is%3Aopen+is%3Aissue+label%3Afeature+sort%3Areactions-%2B1-desc" title="Open Feature Request"><img src="https://img.shields.io/github/issues/mltooling/project-template/feature.svg?label=feature"></a>                                 |
+| 🎁 **Feature Requests**  | <a href="https://github.com/mltooling/project-template/issues?q=is%3Aopen+is%3Aissue+label%3Afeature+sort%3Areactions-%2B1-desc" title="Open Feature Request"><img src="https://img.shields.io/github/issues/mltooling/project-template/feature.svg?label=feature"></a>                                 |
 | 👩‍💻 **Usage Questions**   |  _tbd_ |
 | 🗯 **General Discussion** | _tbd_ |
 | ❓ **Other Requests** | <a href="mailto:team@mltooling.org" title="Email ML Tooling Team"><img src="https://img.shields.io/badge/email-ML Tooling-green?logo=mail.ru&style=flat-square&logoColor=white"></a> |
