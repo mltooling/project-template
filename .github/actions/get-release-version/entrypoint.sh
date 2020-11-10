@@ -5,7 +5,6 @@ set -e
 
 BRANCH_NAME=$(git branch --show-current)
 
-echo $(git branch --show-current)
 if [ -z $INPUT_BRANCH_PREFIX ]; then
     INPUT_BRANCH_PREFIX=""
 fi
