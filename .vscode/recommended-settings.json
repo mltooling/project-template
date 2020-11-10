@@ -46,6 +46,7 @@
   "python.autoComplete.addBrackets": true,
   "python.formatting.provider": "black",
   "python.linting.pydocstyleEnabled": true,
+  "python.testing.pytestEnabled": true,
   // Java Settings
   "java.format.enabled": true,
   "java.saveActions.organizeImports": true,
