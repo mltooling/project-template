@@ -18,3 +18,4 @@ jobs:
           configuration-path: .github/pr-labeler-branch-name.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# Evaluate: https://github.com/srvaroa/labeler
