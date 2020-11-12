@@ -81,7 +81,39 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-### Install web development tools
+# Install pyenv, nox and further python versions for testing against different python versions
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    make \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    llvm \
+    libncurses5-dev \
+    xz-utils \
+    tk-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    libffi-dev \
+    liblzma-dev
+
+RUN pip install nox
+
+RUN git clone https://github.com/pyenv/pyenv.git /.pyenv
+ENV HOME=/
+ENV PYENV_ROOT=$HOME.pyenv
+ENV PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
+# Note: If you change the version here need to be apply the changes to the build.py & noxfile.py
+RUN pyenv install 3.6.6 \
+    && pyenv install 3.7.8 \
+    && pyenv install 3.8.5
+RUN pyenv global 3.8.5 3.7.8 3.6.6
+
+
+# Install web development tools
 RUN apt-get update \
     && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get install -y --no-install-recommends nodejs \
