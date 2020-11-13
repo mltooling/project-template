@@ -17,3 +17,13 @@ def api_app() -> FastAPI:
 
     print("Create api_app fixture")
     return api.app
+
+
+class Utils:
+    def super_useful_helper(self):
+        return "This really helped me"
+
+
+@pytest.fixture(scope="session")
+def test_utils() -> Utils:
+    return Utils()
