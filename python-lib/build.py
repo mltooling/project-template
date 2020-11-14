@@ -74,13 +74,11 @@ def _make(args: Dict[str, Union[bool, str]]):
 
 def _test(args: Dict[str, Union[bool, str]]):
     """Run all tests."""
-    # Install library
-    build_utils.run("pip install -e .[dev]", exit_on_error=True)
-    # Execute tests with coverage check
-    build_utils.run(
-        f"pytest --cov={MAIN_PACKAGE} --cov-report=xml --cov-report term --cov-report=html tests",
-        exit_on_error=True,
-    )
+    # Optionally, the nox version can be set here using `pyenv local 3.6.6 3.7.8`
+    # which overrules the settings made using `pyenv global` in the Dockerfile
+    # Todo: Consider markers
+    # ? Maybe we should provide the possibilty to circumvent the usage of nox e.g. when the slow tests shall be disabled
+    build_utils.run("nox -p", exit_on_error=True)
 
 
 def _release(args: Dict[str, Union[bool, str]]):
