@@ -1,3 +1,5 @@
+"""Command line interface."""
+
 import typer
 
 from template_package import api
