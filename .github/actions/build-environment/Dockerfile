@@ -97,6 +97,7 @@ RUN pip install \
         pymdown-extensions==8.* \
         pygments==2.* \
         markdown-include==0.6.* \
+        mkdocs-awesome-pages-plugin==2.* \
         mkdocs-markdownextradata-plugin==0.1.* \
     && npm install -g markdownlint@^0.21.1 markdownlint-cli@^0.24.0
 

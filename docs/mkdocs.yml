@@ -52,16 +52,16 @@ markdown_extensions:
   - pymdownx.tabbed
 
 plugins:
+  - awesome-pages # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
   - search:
       lang: en
+
 #- markdownextradata:
 #    data: data
 
-# Page tree
-nav:
-  - About Project Template: index.md
-  - Getting Started: getting-started.md
-  - FAQ: faq.md
+# Navigation
+# nav: ommitted, because we're using the awesome-pages plugin (https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin)
+# navigation is defined in the .pages files within the docs folders
 
 # Options
 extra:

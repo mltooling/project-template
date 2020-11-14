@@ -5,7 +5,7 @@ from universal_build import build_utils
 DEPENDENCY_HINT_MSG = {
     "Please make sure you have the dependencies installed. "
     "To install all dependencies, run: \n"
-    "pip install mkdocs mkdocs-material pygments pymdown-extensions markdown-include"
+    "pip install mkdocs mkdocs-material pygments pymdown-extensions markdown-include mkdocs-awesome-pages-plugin"
 }
 
 HERE = os.path.abspath(os.path.dirname(__file__))

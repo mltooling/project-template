@@ -125,7 +125,7 @@ Commit messages should be as standardized as possible within the repository. A f
 ### Git workflow & versioning
 
 - We use [GitLab Flow](https://docs.gitlab.com/ee/university/training/gitlab_flow.html#release-branch) as our branching workflow.
-- Feature branching: Use (short-lived) feature branches. Naming schema:  `feature/<DESCRIPTION>`, if related to one specific issue use suffix: `feature/<DESCRIPTION>/<ISSUE-NUMBER>`.
+- Feature branching: Use (short-lived) feature branches. Naming schema:  `feature/<DESCRIPTION>`, if related to one specific issue use suffix: `feature/<DESCRIPTION>/<ISSUE-NUMBER>`. In addition to the `feature/` prefix, we recommend using more descriptive feature branch prefixes such as `bugfix/` for bug-fixes, `maintenance/` for maintenance or refactoring changes, and `documentation/` for changes related to the documentation.
 - For versioning, we have adapted the [Semantic Versioning](https://semver.org/) standard. All version tags on Git must be prefixed with `v` (e.g.`v<MAJOR>.<MINOR>.<PATCH>`). The version can be suffixed with a tag that indicates a pre-release or unfinished version. All our local development builds will use the following dev suffix: `-dev.<BRANCH>`.
 
 ## Code conventions
@@ -140,7 +140,7 @@ Commit messages should be as standardized as possible within the repository. A f
 - Import Sorting: [isort](https://github.com/PyCQA/isort)
 - Linting: [flake8](https://github.com/PyCQA/flake8)
 - Type Checking: [mypy](https://github.com/python/mypy)
-- Testing: [pytest](http://doc.pytest.org/)
+- Testing: [pytest](http://doc.pytest.org/) + [nox](https://github.com/theacodes/nox)
 - Use type hints wherever possible: [Cheatsheet](https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html)
 - Minimum compatibility: Python 3.6
 
