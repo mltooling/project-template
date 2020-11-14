@@ -13,7 +13,7 @@
     <a href="https://hub.docker.com/r/mltooling/TODO" title="Docker Pulls"><img src="https://img.shields.io/docker/pulls/mltooling/TODO.svg"></a>
     <a href="https://github.com/mltooling/project-template/blob/main/LICENSE" title="Project License"><img src="https://img.shields.io/badge/License-MIT-green.svg"></a>
     <a href="https://api.reuse.software/info/github.com/mltooling/project-template" title="REUSE status"><img src="https://api.reuse.software/badge/github.com/sap/machine-learning-lab"></a>
-    <a href="https://github.com/SAP/machine-learning-lab/actions?query=workflow%3A%22Build+and+Test+ML+Lab%22" title="REUSE status"><img src="https://img.shields.io/github/workflow/status/sap/machine-learning-lab/Build%20and%20Test%20ML%20Lab"></a>
+    <a href="https://github.com/mltooling/project-template/actions?query=workflow%3Abuild-pipeline" title="Build status"><img src="https://github.com/mltooling/project-template/workflows/build-pipeline/badge.svg"></a>
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@
   <a href="#faq">FAQ</a> •
   <a href="#known-issues">Known Issues</a> •
   <a href="#contribution">Contribution</a> •
-  <a href="./CHANGELOG.md">Changelog</a>
+  <a href="https://github.com/mltooling/project-template/releases">Changelog</a>
 </p>
 
 Every project should contain a short description here to help users understand what it does. This description should cover a maximum of 4 lines. If there is a UI, you can also put a screenshot under this description.
