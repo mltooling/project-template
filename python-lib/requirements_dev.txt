@@ -3,6 +3,7 @@ wheel
 twine
 flake8
 pytest
+pytest-mock
 mypy
 pytest-cov
 black

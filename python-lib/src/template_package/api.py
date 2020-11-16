@@ -1,3 +1,4 @@
+import time
 from typing import Optional
 
 from fastapi import FastAPI
@@ -22,6 +23,17 @@ def read_item(item_id: int, q: Optional[str] = None) -> dict:
 @app.put("/items/{item_id}")
 def update_item(item_id: int, item: Item) -> dict:
     return {"item_name": item.name, "item_id": item_id}
+
+
+@app.get("/ext-call")
+def ext_call():
+    return slow_call_to_external_url()
+
+
+def slow_call_to_external_url():
+    print("Slow call started")
+    time.sleep(10)
+    return {"duration": 10}
 
 
 # Patch Fastapi to allow relative path resolution.
