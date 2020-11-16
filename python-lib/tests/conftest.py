@@ -5,10 +5,10 @@ from typer import Typer
 
 @pytest.fixture(scope="session")
 def cli_app() -> Typer:
-    from template_package import cli
+    from template_package import _cli
 
     print("Create cli_app fixture")
-    return cli.app
+    return _cli.app
 
 
 @pytest.fixture(scope="session")

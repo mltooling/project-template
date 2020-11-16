@@ -60,7 +60,7 @@ with open(os.path.join(PWD, "README.md"), encoding="utf-8") as f:
 # Load the package's about.py module as a dictionary.
 about = {}  # type: dict
 if not VERSION:
-    with open(os.path.join(PWD, os.path.join("src", MAIN_PACKAGE), "about.py")) as f:  # type: ignore
+    with open(os.path.join(PWD, os.path.join("src", MAIN_PACKAGE), "_about.py")) as f:  # type: ignore
         # todo: extract version via regex? re.findall("__version__ = '([\d.\w]+)'", f.read())[0]
         exec(f.read(), about)
         VERSION = about["__version__"]
