@@ -24,3 +24,22 @@ def test(session):
         "--cov-report=html",
         "tests",
     )
+
+
+@nox.session(python=["3.8", "3.7", "3.6"])
+def test_no_slow(session):
+    session.run(
+        "pip",
+        "install",
+        "-e" ".[dev]",
+    )
+    # Execute tests with coverage check
+    session.run(
+        "python",
+        "-m",
+        "pytest",
+        "-s",
+        "-m",
+        "not slow",
+        "tests",
+    )
