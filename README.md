@@ -76,7 +76,7 @@ Please refer to [our documentation](#TODO) for information about deployment or u
 
 ## Contributors
 
-_TODO: Add sourcerer [hall of fame](https://github.com/sourcerer-io/hall-of-fame) here._
+_TODO: Add sourcerer [hall of fame](https://sourcerer.io/settings#hof) here._
 
 ## Contribution
 
@@ -92,7 +92,7 @@ _TODO: Add sourcerer [hall of fame](https://github.com/sourcerer-io/hall-of-fame
 To simplify the process of building this project from scratch, we provide build-scripts that run all necessary steps (build, check, test, and release) within a containerized environment. To build and test your changes, execute the following command in the project root folder:
 
 ```bash
-act -j build
+act -b -j build
 ```
 
 Refer to our [contribution guides](https://github.com/mltooling/project-template/blob/main/CONTRIBUTING.md#development-instructions) for more detailed information on our build scripts and development process.
