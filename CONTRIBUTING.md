@@ -91,10 +91,10 @@ act -b -j build
 
 #### Release a new version
 
-To release a new version and publish all relevant artifacts to respective registries (e.g. Docker image to DockerHub), you need to first create a git version tag based on [Semantic Versioning](https://semver.org/) standard and, subsequently, run the release job:
+To release a new version and publish all relevant artifacts to respective registries (e.g. Docker image to DockerHub), run the release job with a valid version based on [Semantic Versioning](https://semver.org/) standard:
 
 ```bash
-git tag vMAJOR.MINOR.PATCH && act -j release
+act -b -s VERSION="<MAJOR.MINOR.PATCH>" -j release
 ```
 
 ### Commit messages guidelines
