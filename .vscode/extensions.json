@@ -37,6 +37,7 @@
     "ms-python.python",
     "ms-python.vscode-pylance",
     "njpwerner.autodocstring",
+    "ms-toolsai.jupyter",
     // Java Development
     "vscjava.vscode-java-pack",
     "redhat.java",
