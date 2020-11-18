@@ -3,16 +3,16 @@ import os
 import re
 import sys
 from shutil import rmtree
-from typing import Dict, Union
+from typing import Dict, List, Union
 
 from universal_build import build_utils
 
+TEST_MARKER_NO_SLOW = "no-slow"
 MAIN_PACKAGE = "template_package"
-
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
-def main(args: Dict[str, Union[bool, str]]):
+def main(args: Dict[str, Union[str, bool, List[str]]]):
 
     # set current path as working dir
     os.chdir(HERE)
@@ -39,7 +39,7 @@ def main(args: Dict[str, Union[bool, str]]):
         _release(args)
 
 
-def _check(args: Dict[str, Union[bool, str]]):
+def _check(args: Dict[str, Union[str, bool, List[str]]]):
     """Run linting and style checks via black, isort, mypy and flake8."""
     build_utils.run("pip install -e .[dev]", exit_on_error=True)
     # Run linters and checks
@@ -53,7 +53,7 @@ def _check(args: Dict[str, Union[bool, str]]):
     build_utils.run("pydocstyle src", exit_on_error=True)
 
 
-def _make(args: Dict[str, Union[bool, str]]):
+def _make(args: Dict[str, Union[str, bool, List[str]]]):
     """Build the library."""
     # Todo: Generate documentation
     try:
@@ -72,16 +72,19 @@ def _make(args: Dict[str, Union[bool, str]]):
     build_utils.run("twine check dist/*", exit_on_error=True)
 
 
-def _test(args: Dict[str, Union[bool, str]]):
+def _test(args: Dict[str, Union[str, bool, List[str]]]):
     """Run all tests."""
     # Optionally, the nox version can be set here using `pyenv local 3.6.6 3.7.8`
     # which overrules the settings made using `pyenv global` in the Dockerfile
-    # Todo: Consider markers
     # ? Maybe we should provide the possibilty to circumvent the usage of nox e.g. when the slow tests shall be disabled
-    build_utils.run("nox -p", exit_on_error=True)
+    test_markers = args[build_utils.FLAG_TEST_MARKER]
+    if isinstance(test_markers, list) and TEST_MARKER_NO_SLOW in test_markers:
+        build_utils.run("nox -p -s test_no_slow", exit_on_error=True)
+    else:
+        build_utils.run("nox -p test", exit_on_error=True)
 
 
-def _release(args: Dict[str, Union[bool, str]]):
+def _release(args: Dict[str, Union[str, bool, List[str]]]):
     """Publish library to pypi repository."""
     pypi_user = "__token__"
     pypi_repository_args = ""  # Use main repository
