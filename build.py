@@ -1,9 +1,9 @@
-from typing import Dict, Union
+from typing import Dict, List, Union
 
 from universal_build import build_utils
 
 
-def main(args: Dict[str, Union[bool, str]]):
+def main(args: Dict[str, Union[str, bool, List[str]]]):
     """Execute all component builds."""
     # build_utils.build("docs", args)
     build_utils.build("react-webapp", args)
