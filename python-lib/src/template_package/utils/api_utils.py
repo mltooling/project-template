@@ -2,8 +2,7 @@ from fastapi import FastAPI
 
 
 def patch_fastapi(app: FastAPI) -> None:
-    """
-    Patch function to allow relative url resolution.
+    """Patch function to allow relative url resolution.
 
     This patch is required to make fastapi fully functional with a relative url path.
     This code snippet can be copy-pasted to any Fastapi application.
@@ -25,7 +24,8 @@ def patch_fastapi(app: FastAPI) -> None:
             "requestInterceptor: (e)  => {"
             "\n\t\t\tvar url = window.location.origin + window.location.pathname"
             '\n\t\t\turl = url.substring( 0, url.lastIndexOf( "/" ) + 1);'
-            "\n\t\t\turl = e.url.replace(/http(s)?:\/\/[^/]*\//i, url);"
+            # TODO it still works: "\n\t\t\turl = e.url.replace(/http(s)?:\/\/[^/]*\//i, url);"
+            "\n\t\t\turl = e.url.replace(/http(s)?://[^/]*//i, url);"
             "\n\t\t\te.contextUrl = url"
             "\n\t\t\te.url = url"
             "\n\t\t\treturn e;}"

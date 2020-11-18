@@ -1,14 +1,15 @@
 import argparse
 import os
 import re
-import sys
 from shutil import rmtree
 from typing import Dict, Union
 
 from universal_build import build_utils
 
 MAIN_PACKAGE = "template_package"
+GITHUB_URL = "https://github.com/mltooling/project-template"
 
+PIPENV_RUN = "pipenv run "
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -17,9 +18,12 @@ def main(args: Dict[str, Union[bool, str]]):
     # set current path as working dir
     os.chdir(HERE)
 
+    # Install dev requirements
+    build_utils.run("pipenv install --dev", exit_on_error=True)
+
     version = args[build_utils.FLAG_VERSION]
-    if args[build_utils.FLAG_VERSION]:
-        # Replace version in about.py
+    if version:
+        # Update version in _about.py
         with open(os.path.join(HERE, f"src/{MAIN_PACKAGE}/_about.py"), "r+") as f:
             data = f.read()
             f.seek(0)
@@ -41,16 +45,27 @@ def main(args: Dict[str, Union[bool, str]]):
 
 def _check(args: Dict[str, Union[bool, str]]):
     """Run linting and style checks via black, isort, mypy and flake8."""
-    build_utils.run("pip install -e .[dev]", exit_on_error=True)
     # Run linters and checks
-    build_utils.run("black --check src", exit_on_error=True)
-    build_utils.run("black --check tests", exit_on_error=True)
-    build_utils.run("isort --profile black --check-only src", exit_on_error=True)
-    build_utils.run("isort --profile black --check-only tests", exit_on_error=True)
-    build_utils.run("mypy src", exit_on_error=True)
-    build_utils.run("flake8 --show-source --statistics src", exit_on_error=True)
-    build_utils.run("flake8 --show-source --statistics tests", exit_on_error=True)
-    build_utils.run("pydocstyle src", exit_on_error=True)
+    build_utils.run(PIPENV_RUN + " black --check src", exit_on_error=True)
+    build_utils.run(PIPENV_RUN + " black --check tests", exit_on_error=True)
+    build_utils.run(
+        PIPENV_RUN + " isort --profile black --check-only src", exit_on_error=True
+    )
+    build_utils.run(
+        PIPENV_RUN + " isort --profile black --check-only tests",
+        exit_on_error=True,
+    )
+    build_utils.run(PIPENV_RUN + " mypy src", exit_on_error=True)
+    build_utils.run(
+        PIPENV_RUN + " flake8 --show-source --statistics src", exit_on_error=True
+    )
+    build_utils.run(
+        PIPENV_RUN + " flake8 --show-source --statistics tests", exit_on_error=True
+    )
+    build_utils.run(PIPENV_RUN + " pydocstyle src", exit_on_error=True)
+
+    # Check using pipenv (runs safety check)
+    build_utils.run("pipenv check", exit_on_error=True)
 
 
 def _make(args: Dict[str, Union[bool, str]]):
@@ -64,21 +79,31 @@ def _make(args: Dict[str, Union[bool, str]]):
 
     # Build the distribution archives
     build_utils.run(
-        f"{sys.executable} setup.py sdist bdist_wheel clean --all",
+        "python setup.py sdist bdist_wheel clean --all",
         exit_on_error=True,
     )
 
     # Check the archives with twine
     build_utils.run("twine check dist/*", exit_on_error=True)
 
+    # Create API documentation via lazydocs
+    build_utils.run(
+        f"{PIPENV_RUN} lazydocs --overview-file=README.md --src-base-url={GITHUB_URL}/blob/main {MAIN_PACKAGE}",
+        exit_on_error=True,
+    )
+
 
 def _test(args: Dict[str, Union[bool, str]]):
     """Run all tests."""
+    # Cleanup coverage
+    build_utils.run(PIPENV_RUN + " coverage erase", exit_on_error=False)
+    build_utils.run(PIPENV_RUN + " pipenv run pytest", exit_on_error=True)
+
     # Optionally, the nox version can be set here using `pyenv local 3.6.6 3.7.8`
     # which overrules the settings made using `pyenv global` in the Dockerfile
     # Todo: Consider markers
     # ? Maybe we should provide the possibilty to circumvent the usage of nox e.g. when the slow tests shall be disabled
-    build_utils.run("nox -p", exit_on_error=True)
+    build_utils.run(PIPENV_RUN + " nox -p", exit_on_error=True)
 
 
 def _release(args: Dict[str, Union[bool, str]]):

@@ -26,11 +26,11 @@ def update_item(item_id: int, item: Item) -> dict:
 
 
 @app.get("/ext-call")
-def ext_call():
+def ext_call() -> dict:
     return slow_call_to_external_url()
 
 
-def slow_call_to_external_url():
+def slow_call_to_external_url() -> dict:
     print("Slow call started")
     time.sleep(10)
     return {"duration": 10}
