@@ -16,6 +16,7 @@
 		 "42Crunch.vscode-openapi",
      "EditorConfig.EditorConfig",
      "mutantdino.resourcemonitor",
+     "redhat.vscode-yaml",
 		 // Collaboration
 		 "eamodio.gitlens",
 		 // Container Development

@@ -31,7 +31,12 @@ categories:
   #- title: "🧰 Maintenance"
   #- title: "⚠️ Deprecations"
   #- title: "✨ New Features"
+exclude-labels:
+  - "skip changelog"
 change-template: "- $TITLE (#$NUMBER) by @$AUTHOR"
+replacers:
+  - search: '/(?:and)?(,)?(\s)*@github-actions(?:\[bot\])?,?/g'
+    replace: ""
 template: |
   $CHANGES
 

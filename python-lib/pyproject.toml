@@ -1,3 +1,5 @@
+# Support for PEP 517
+# https://setuptools.readthedocs.io/en/latest/setuptools.html#setup-cfg-only-projects
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
@@ -15,6 +17,7 @@ exclude = '''
   | \.mypy_cache
   | \.pytest_cache
   | \.tox
+  | \.nox
   | \.venv
   | _build
   | build

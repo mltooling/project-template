@@ -1,41 +1,34 @@
 import os
 
 from universal_build import build_utils
-
-DEPENDENCY_HINT_MSG = {
-    "Please make sure you have the dependencies installed. "
-    "To install all dependencies, run: \n"
-    "pip install mkdocs mkdocs-material pygments pymdown-extensions markdown-include mkdocs-awesome-pages-plugin"
-}
+from universal_build.helpers import build_mkdocs
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-# set current path as working dir
-os.chdir(HERE)
 
-args = build_utils.get_sanitized_arguments()
 
-if args[build_utils.FLAG_MAKE]:
-    build_utils.log("Build documentation:")
-    exit_code = build_utils.run("mkdocs build").returncode
-    if exit_code > 0:
-        build_utils.log(f"Failed to build mkdocs documentation. {DEPENDENCY_HINT_MSG}")
-        build_utils.exit_process(exit_code)
+def main(args: dict):
+    # set current path as working dir
+    os.chdir(HERE)
 
-if args[build_utils.FLAG_CHECK]:
-    build_utils.log("Run linters and style checks:")
-    build_utils.run(
-        "markdownlint --config='.markdown-lint.yml' ./docs", exit_on_error=True
-    )
+    if args.get(build_utils.FLAG_MAKE):
+        # Install pipenv dev requirements
+        build_mkdocs.install_build_env()
+        # Build mkdocs documentation
+        build_mkdocs.build_mkdocs()
 
-if args[build_utils.FLAG_RELEASE]:
-    build_utils.log("Release documentation:")
-    build_utils.run("mkdocs gh-deploy --clean", exit_on_error=True, timeout=120)
+    if args.get(build_utils.FLAG_CHECK):
+        build_mkdocs.lint_markdown()
 
-if args[build_utils.FLAG_RUN]:
-    build_utils.log("Run docs in development mode (http://localhost:8001):")
-    exit_code = build_utils.run(
-        "mkdocs serve --dev-addr 0.0.0.0:8001", exit_on_error=True
-    )
-    if exit_code > 0:
-        build_utils.log(f"Failed to run mkdocs documentation. {DEPENDENCY_HINT_MSG}")
-        build_utils.exit_process(exit_code)
+    if args.get(build_utils.FLAG_RELEASE):
+        # Deploy to Github pages
+        build_mkdocs.deploy_gh_pages()
+        # Lock pipenv requirements
+        build_utils.run("pipenv lock")
+
+    if args.get(build_utils.FLAG_RUN):
+        build_mkdocs.run_dev_mode()
+
+
+if __name__ == "__main__":
+    args = build_utils.get_sanitized_arguments()
+    main(args)

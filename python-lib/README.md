@@ -19,7 +19,7 @@ pip install --upgrade -e path/to/lib
 After installation, the package can be imported:
 
 ```python
-import build_py
+import template_package
 ```
 
 ## Development

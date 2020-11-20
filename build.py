@@ -1,14 +1,30 @@
-from typing import Dict, Union
+import os
+import shutil
+from typing import Dict, List, Union
 
 from universal_build import build_utils
 
 
-def main(args: Dict[str, Union[bool, str]]):
+def main(args: Dict[str, Union[str, bool, List[str]]]):
     """Execute all component builds."""
-    # build_utils.build("docs", args)
-    build_utils.build("react-webapp", args)
-    # build_utils.build("java-service", args)
+    # Build react webapp
+    # build_utils.build("react-webapp", args)
+    # Build python lib
     build_utils.build("python-lib", args)
+
+    if args[build_utils.FLAG_MAKE]:
+        # Duplicate api docs into the mkdocs documentation
+        duplicate_folder("./python-lib/docs", "./docs/docs/api-docs/")
+
+    # Build mkdocs documentation
+    build_utils.build("docs", args)
+
+
+def duplicate_folder(src_path: str, target_path: str):
+    """Duplicate a folder into another folder."""
+    if os.path.exists(target_path):
+        shutil.rmtree(target_path)
+    shutil.copytree(src_path, target_path)
 
 
 if __name__ == "__main__":
@@ -17,8 +33,16 @@ if __name__ == "__main__":
 
     if args[build_utils.FLAG_RELEASE] and not args[build_utils.FLAG_FORCE]:
         # Run main without release to see whether everthing can be built and all tests run through
-        main({**args, "release": False})
+        main({**args, build_utils.FLAG_RELEASE: False})
         # Run main again with only executing release with force flag
-        main({**args, "make": False, "test": False, "check": False, "force": True})
+        main(
+            {
+                **args,
+                build_utils.FLAG_MAKE: False,
+                build_utils.FLAG_TEST: False,
+                build_utils.FLAG_CHECK: False,
+                build_utils.FLAG_FORCE: True,
+            }
+        )
     else:
         main(args)
