@@ -1,3 +1,7 @@
+# Ignore MkDocs site build
+docs/site
+docs/site/*
+
 # IntelliJ
 target/
 .idea/
