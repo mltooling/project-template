@@ -73,13 +73,8 @@ jobs:
           branch: ${{ env.BRANCH_PREFIX }}${{ env.VERSION  }}
           commit_user_name: Release Bot
           commit_user_email: actions@github.com
-          commit_message: Apply automatic release changes
-      - if: ${{ env.GITHUB_TOKEN }}
-        name: create-release-tag
-        uses: tvdias/github-tagger@v0.0.2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          tag: v${{ env.VERSION  }}
+          commit_message: Apply automatic release changes for v${{ env.VERSION  }}
+          tagging_message: v${{ env.VERSION  }}
       - if: ${{ env.GITHUB_TOKEN }}
         name: pull-request
         uses: repo-sync/pull-request@v2
