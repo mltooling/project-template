@@ -14,7 +14,7 @@ def main(args: Dict[str, Union[str, bool, List[str]]]):
 
     if args[build_utils.FLAG_MAKE]:
         # Duplicate api docs into the mkdocs documentation
-        duplicate_folder("./python-lib/docs", "./docs/docs/api-docs/")
+        duplicate_folder("./python-lib/docs/", "./docs/docs/api-docs/")
 
     # Build mkdocs documentation
     build_utils.build("docs", args)
