@@ -1,5 +1,3 @@
-import os
-import shutil
 from typing import Dict, List, Union
 
 from universal_build import build_utils
@@ -14,17 +12,10 @@ def main(args: Dict[str, Union[str, bool, List[str]]]):
 
     if args[build_utils.FLAG_MAKE]:
         # Duplicate api docs into the mkdocs documentation
-        duplicate_folder("./python-lib/docs/", "./docs/docs/api-docs/")
+        build_utils.duplicate_folder("./python-lib/docs/", "./docs/docs/api-docs/")
 
     # Build mkdocs documentation
     build_utils.build("docs", args)
-
-
-def duplicate_folder(src_path: str, target_path: str):
-    """Duplicate a folder into another folder."""
-    if os.path.exists(target_path):
-        shutil.rmtree(target_path)
-    shutil.copytree(src_path, target_path)
 
 
 if __name__ == "__main__":
