@@ -9,6 +9,7 @@ on:
       working_directory:
         description: "Working directory from where the build command is run"
         required: false
+  push:
 
 env:
   BUILD_ARGS: ${{ secrets.BUILD_ARGS }}
@@ -33,5 +34,5 @@ jobs:
         with:
           build_args: ${{ env.BUILD_ARGS }}
           working_directory: ${{ env.WORKING_DIRECTORY }}
-        #env:
-        #  GITHUB_TOKEN: ${{ secret.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

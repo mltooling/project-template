@@ -1,12 +1,10 @@
-from typing import Dict, List, Union
-
 from universal_build import build_utils
 
 
-def main(args: Dict[str, Union[str, bool, List[str]]]):
+def main(args: dict):
     """Execute all component builds."""
     # Build react webapp
-    # build_utils.build("react-webapp", args)
+    build_utils.build("react-webapp", args)
     # Build python lib
     build_utils.build("python-lib", args)
 
@@ -20,9 +18,9 @@ def main(args: Dict[str, Union[str, bool, List[str]]]):
 
 if __name__ == "__main__":
     # Check for valid arguments
-    args = build_utils.get_sanitized_arguments()
+    args = build_utils.parse_arguments()
 
-    if args[build_utils.FLAG_RELEASE] and not args[build_utils.FLAG_FORCE]:
+    if args.get(build_utils.FLAG_RELEASE) and not args.get(build_utils.FLAG_FORCE):
         # Run main without release to see whether everthing can be built and all tests run through
         main({**args, build_utils.FLAG_RELEASE: False})
         # Run main again with only executing release with force flag

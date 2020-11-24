@@ -19,16 +19,20 @@ def main(args: dict) -> None:
     if version:
         # Update version in _about.py
         build_python.update_version(
-            os.path.join(HERE, f"src/{MAIN_PACKAGE}/_about.py"), str(version)
+            os.path.join(HERE, f"src/{MAIN_PACKAGE}/_about.py"),
+            str(version),
+            exit_on_error=True,
         )
 
     if args.get(build_utils.FLAG_MAKE):
         # Install pipenv dev requirements
-        build_python.install_build_env()
+        build_python.install_build_env(exit_on_error=True)
         # Create API documentation via lazydocs
-        build_python.generate_api_docs(github_url=GITHUB_URL, main_package=MAIN_PACKAGE)
+        build_python.generate_api_docs(
+            github_url=GITHUB_URL, main_package=MAIN_PACKAGE, exit_on_error=True
+        )
         # Build distribution via setuptools
-        build_python.build_distribution()
+        build_python.build_distribution(exit_on_error=True)
 
     if args.get(build_utils.FLAG_CHECK):
         build_python.code_checks(exit_on_error=True)
@@ -45,10 +49,14 @@ def main(args: dict) -> None:
         ):
             # Run if slow test marker is set: test in multiple environments
             # Python 3.6
-            build_python.test_with_py_version(python_version="3.6.12")
+            build_python.test_with_py_version(
+                python_version="3.6.12", exit_on_error=True
+            )
 
             # Python 3.7
-            build_python.test_with_py_version(python_version="3.7.9")
+            build_python.test_with_py_version(
+                python_version="3.7.9", exit_on_error=True
+            )
 
             # Activated Python Environment (3.8)
             build_python.install_build_env()
@@ -63,15 +71,17 @@ def main(args: dict) -> None:
 
     if args.get(build_utils.FLAG_RELEASE):
         # Publish distribution on pypi
-        build_python.publish_pypi_distribution(
-            pypi_token=args.get(build_python.FLAG_PYPI_TOKEN),
-            pypi_repository=args.get(build_python.FLAG_PYPI_REPOSITORY),
-        )
+        # TODO: Do not publish project-template
+        # build_python.publish_pypi_distribution(
+        #     pypi_token=args.get(build_python.FLAG_PYPI_TOKEN),
+        #     pypi_repository=args.get(build_python.FLAG_PYPI_REPOSITORY),
+        # )
 
         # TODO: Publish coverage report: if private repo set CODECOV_TOKEN="token" or use -t
         # build_utils.run("curl -s https://codecov.io/bash | bash -s", exit_on_error=False)
+        pass
 
 
 if __name__ == "__main__":
-    args = build_python.get_sanitized_arguments()
+    args = build_python.parse_arguments()
     main(args)
